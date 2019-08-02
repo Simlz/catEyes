@@ -1,0 +1,1 @@
+export const GET_ALL_CINEMA_LIST = "GET_ALL_CINEMA_LIST"

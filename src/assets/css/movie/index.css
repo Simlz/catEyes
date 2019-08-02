@@ -1,0 +1,28 @@
+/* 电影 */
+.movie .main .second_menu{
+    display: flex;
+    justify-content: space-around;
+    height: 49px;
+    border-bottom: 1px solid #cccccc;
+  }
+  .movie .main .second_menu .choose_city{
+    display: flex;
+    
+  }
+  .movie .main .second_menu .choose_city .triangle_gray{
+    margin-top: 22px
+  }
+  .movie .main .second_menu a{
+    color: #333333;
+    line-height: 50px;
+  }
+  .movie .main .second_menu a .iconfont{
+    font-size: 24px;
+    color: #f03d37
+  }
+  .movie .main .second_menu .active{
+    color: #f03d37;
+    border-bottom: 2px solid #f03d37;
+    font-weight: 600;
+  }
+  /* *********************************** */
