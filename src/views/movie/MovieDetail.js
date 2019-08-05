@@ -27,7 +27,7 @@ export default class MovieDetail extends Component {
         // console.log(this.props.match.params.id);
         return (
             <div className="movie_detail">
-                <div className="main">
+                <div className="mainDetail">
                     
                     <Headers  label={detail.nm}></Headers>
                     <Link to={'/detailsdetails/'+detail.id}>

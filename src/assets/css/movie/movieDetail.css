@@ -2,15 +2,15 @@
     width: 100%;
     font-size: 13px;
 }
-.main{
+.mainDetail{
     width: 100%;
     padding-top:50px; 
     height: 188px;
 }
-.main .login{
+ .login{
     width: 100%;
     height: 200px;
-    background: rgba(0,0,0,0.8);
+    background: rgba(0, 0, 0, 0.5);
    }
 .login .pic_show img{
     width: 110px;
