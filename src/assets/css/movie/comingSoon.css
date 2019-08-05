@@ -1,9 +1,15 @@
 /* 电影 */
 .movie .main .second_menu{
+  width: 100%;
     display: flex;
     justify-content: space-around;
     height: 49px;
     border-bottom: 1px solid #cccccc;
+    position: fixed;
+    top:50px;
+    left:0;
+    background-color:#fff;
+    z-index: 9;
   }
   .movie .main .second_menu .choose_city{
     display: flex;
@@ -25,5 +31,75 @@
     border-bottom: 2px solid #f03d37;
     font-weight: 600;
   }
+  .movie .main{
+    padding:100px 0;
+  }
 
-  /* *************************************** */
+  /* ******************顶部滑动样式样式********************* */
+  .warp{
+    width: 100%;
+    height: 225px;
+    position:flex;
+    top:50px;
+    left: 0;
+    overflow: hidden;
+  }
+.movie_body1{
+  width: 100%;
+  height: 216px;
+}
+.movie_body1 p{
+  margin: 10px;
+  color: #333;
+}
+.movie_body1 ul{
+  height: 200px;
+  display: flex;
+  overflow-x: scroll;
+  overflow-y: hidden;
+
+}
+
+.movie_body1 ul li{
+  width: 85px;
+  height: 157px;
+  padding:0 10px;
+}
+.pic_show img{
+  width: 100%;
+  height: 120px;
+}
+.movie_body1 .info_list{
+ font-size: 13px;
+}
+.movie_body1 .info_list p{
+  width: 78px;
+  height: 25px;
+  margin:5px 2px;
+  width: value;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-weight: 600;
+}
+.movie_body1 .info_list span{
+  display:block;
+  margin: -7px 0px;
+  width:50px;
+  height: 17px;
+  overflow: hidden;
+  text-align: center;
+  color: #999999;
+}
+
+.middle{
+  width:93%;
+  height: 8px;
+  background: #eee;
+  position: fixed;
+  top:325px;
+  left:0;
+}
+  /* *******************列表样式******************** */
+
+  

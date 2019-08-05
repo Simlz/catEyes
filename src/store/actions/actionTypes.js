@@ -1,1 +1,13 @@
 export const GET_ALL_CINEMA_LIST = "GET_ALL_CINEMA_LIST"
+
+
+
+
+
+
+
+
+
+export const GET_ALL_MOVIE_LIST = "GET_ALL_MOVIE_LIST"
+
+export const GET_ALL_CITY_LIST = "GET_ALL_CITY_LIST"
