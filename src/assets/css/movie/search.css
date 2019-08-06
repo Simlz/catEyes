@@ -42,5 +42,12 @@ body{
     background-color: #f5f5f5;
 }
 .Line{
-    border-bottom:0.6px solid #777;
+    border-bottom:0.6px solid #e6e6e6;
+}
+.Outercity p{
+    margin: 7px 22px;
+    color: #999;
+}
+.Outercity .Line-bottom {
+    border-top:0.6px solid #e6e6e6; 
 }

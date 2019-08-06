@@ -8,7 +8,7 @@ import {NavLink} from 'react-router-dom'
  class CityList extends Component {
 
     render() {
-        
+        console.log(this.props)
         let { city } = this.props
         if(JSON.stringify(city) === "{}"){
             return(
@@ -16,7 +16,7 @@ import {NavLink} from 'react-router-dom'
             )
         }
         // console.log(this.props.city.cts[0].id);
-        // console.log(this.props.city.cts[0].nm);
+        console.log(this.props.city.cts[1].nm,);
         return (
             <div className="city_body">
                 <h2>热门城市</h2>
@@ -33,7 +33,7 @@ import {NavLink} from 'react-router-dom'
                                 <div  className="city_list">
                                     <div className="city_hot">
                                         <ul className="clearfix">
-                                            <li>{v.nm}</li>
+                                            <li onClick={this.getSetonClick.bind(this,v.nm)}>{v.nm}</li>
                                         </ul>
                                     </div>
                                         {/* <div className="city_sort">
@@ -51,6 +51,9 @@ import {NavLink} from 'react-router-dom'
                 }
             </div>
         )
+    }
+    getSetonClick = (name) =>{
+        localStorage.name=name;
     }
     componentDidMount() {
         this.props.getAllCityList()

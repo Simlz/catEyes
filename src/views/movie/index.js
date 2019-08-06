@@ -19,10 +19,16 @@ import filter from '../../common/Filters'
          super()
          this.state = {
             City:[],
+            name:'北京'
          }
      }
+     
     render() {
-        console.log(455555,this.props.listWei)
+        // console.log(455555,this.props.listWei)
+        if(!this.props.location.state){
+            this.props.location.state = {id:1};
+        }
+
         let { listWei } = this.props
         if(JSON.stringify(listWei) === "{}"){
             return(
@@ -30,7 +36,7 @@ import filter from '../../common/Filters'
             )
         } 
         
-        // console.log(this.props.location.state.id)
+        console.log(this.props)
         // console.log(this.props.location.state.name)
         return (
             <div className="movie">
@@ -38,13 +44,19 @@ import filter from '../../common/Filters'
                 <div className="main">
                     <div className="second_menu">
                             <NavLink to="/citylist" className="choose_city">
-                                <p>{this.props.location.state.name}</p>
+                                <p>{localStorage.name}</p>
                                 <p className="triangle_gray"></p>
                             </NavLink>
                             <NavLink exact to="/" activeClassName="active">
                                 <p>正在热映</p>
+                            
                             </NavLink>
-                            <NavLink exact to="/movie/comingsoon" activeClassName="active">
+                            <NavLink exact to={{
+                                pathname:"/movie/comingsoon/",
+                                state:{
+                                    name:this.props.location.state.name
+                                }
+                            }} activeClassName="active">
                                 <p>即将上演</p>   
                             </NavLink>
                             <NavLink to="/search">
@@ -82,9 +94,35 @@ import filter from '../../common/Filters'
             </div>
         )
     }
-  
+    // componentWillMount(){
+    //     if(this.props.location.state){
+    //         localStorage.id=this.props.location.state.id,
+    //         localStorage.name=this.props.location.state.name
+    //     }else if(!this.props.location.state){
+    //         localStorage.id = 1;
+    //         localStorage.name = "北京"
+    //     }
+    // }
+    // componentWillReceiveProps(){
+    //     console.log(2222222)
+    //     if(!this.props.location.state){
+    //         this.props.location.state = {};
+    //         this.props.location.state.id = 1;
+            
+    //     }
+    //     this.props.getAllMovieList(this.props.location.state.id);
+    // }
+
     componentDidMount() {
-        this.props.getAllMovieList();
+        // console.log(222222222222,localStorage.name);
+        // // console.log(this.props.location.state.name)
+        // if(!this.props.location.state){
+        //     this.props.location.state = {id:1};
+        //     // localStorage.name = "北京"
+        //     // this.props.location.state.id = 1;
+        //     // this.props.location.state.name = ;
+        // }
+        this.props.getAllMovieList(this.props.location.state.id);
         
     }
     

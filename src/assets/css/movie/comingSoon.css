@@ -32,7 +32,7 @@
     font-weight: 600;
   }
   .movie .main{
-    padding:100px 0;
+    padding:100px 0 60px;
   }
 
   /* ******************顶部滑动样式样式********************* */
@@ -96,10 +96,11 @@
   width:93%;
   height: 8px;
   background: #eee;
-  position: fixed;
+  position: absolute;
   top:325px;
   left:0;
 }
   /* *******************列表样式******************** */
+  
 
   
