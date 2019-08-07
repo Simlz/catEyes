@@ -53,7 +53,7 @@ export default [
     },{
         // 城市列表
         id:4,
-        to:"/citylist",
+        to:"/citylist/:id",
         path:"/citylist",
         exact:true,
         context:"城市",

@@ -1,9 +1,15 @@
 /* 电影 */
 .movie .main .second_menu{
+  width: 100%;
     display: flex;
     justify-content: space-around;
     height: 49px;
     border-bottom: 1px solid #cccccc;
+    position: fixed;
+    top:50px;
+    left:0;
+    background-color:#fff;
+    z-index: 9;
   }
   .movie .main .second_menu .choose_city{
     display: flex;
@@ -25,4 +31,8 @@
     border-bottom: 2px solid #f03d37;
     font-weight: 600;
   }
+  .main{
+    padding-top:100px
+  }
   /* *********************************** */
+  

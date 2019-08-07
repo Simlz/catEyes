@@ -6,6 +6,8 @@ import {
 
 // 电影
 import ComingSoon from "./views/movie/ComingSoon"
+import MovieDetail from './views/movie/MovieDetail'
+import DetailsDetails from './views/movie/DetailsDetails'
 
 // 我的
 import MyMovie from "./views/myCenter/MyMovie"
@@ -35,9 +37,15 @@ class App extends React.Component{
         <Route path="/mycenter/mycoupon" component={MyCoupon}></Route>
         <Route path="/mycenter/membercard" component={MemberCard}></Route>
         <Route exact path="/movie/comingsoon" component={ComingSoon}></Route>
+<<<<<<< HEAD
         <Route path="/cinema/shows/:id" component={Shows}></Route>
         <Route path="/cinema/cinemadetail/:id" component={CinemaDetail}></Route>
         <Route path="/mycenter/vipcard/:id" component={VipCard}></Route>
+=======
+
+        <Route path="/moviedetail/:id" component={MovieDetail}></Route>
+        <Route path="/detailsdetails/:id" component={DetailsDetails}></Route>
+>>>>>>> 5e6cf689ffebf740cc9d6a8deafca7a60a27b54e
       </Router>
     )
   }
