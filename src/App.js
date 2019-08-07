@@ -13,6 +13,9 @@ import Store from "./views/myCenter/Store"
 import Vod from "./views/myCenter/Vod"
 import MyCoupon from "./views/myCenter/MyCoupon"
 import MemberCard from "./views/myCenter/MemberCard"
+import Shows from "./views/cinema/Shows"
+import CinemaDetail from "./views/cinema/CinemaDetail"
+import VipCard from "./views/myCenter/VipCard"
 
 import Routers from "./router"
 import './App.css';
@@ -20,7 +23,7 @@ import './App.css';
 class App extends React.Component{
   render(){
     return(
-      <Router>
+      <Router forceRefresh={true}>
         {Routers.map((v,k) => {
           return(
             <Route path={v.path} component={v.component} key={k} exact={v.exact}></Route>
@@ -32,6 +35,9 @@ class App extends React.Component{
         <Route path="/mycenter/mycoupon" component={MyCoupon}></Route>
         <Route path="/mycenter/membercard" component={MemberCard}></Route>
         <Route exact path="/movie/comingsoon" component={ComingSoon}></Route>
+        <Route path="/cinema/shows/:id" component={Shows}></Route>
+        <Route path="/cinema/cinemadetail/:id" component={CinemaDetail}></Route>
+        <Route path="/mycenter/vipcard/:id" component={VipCard}></Route>
       </Router>
     )
   }

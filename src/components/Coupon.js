@@ -1,12 +1,14 @@
 import React, { Component } from 'react'
 
-import "../assets/css/coupon.css"
+import "../assets/css/components/coupon.css"
+import overdue from "../assets/images/overdue.png"
+
 export default class Coupon extends Component {
     render() {
-        let {money,type,activity,explain,starttime,endtime} = this.props;
+        let {money,type,activity,explain,starttime,endtime,isoverdur} = this.props;
         return (
             <div className="coupon_com">
-                <div className="coupon_left">
+                <div className="coupon_left" style={{backgroundColor:isoverdur?"#c9c9c9" : "#f03d37"}}>
                     <div className="money">
                         <h3>{money}</h3>
                         <p>元</p>
@@ -25,6 +27,7 @@ export default class Coupon extends Component {
                     <p className="coupon_time">
                         有效期{starttime}至{endtime}
                     </p>
+                    <img style={{display:isoverdur ? "block" : "none"}} src={overdue} alt=""/>
                 </div>
             </div>
         )

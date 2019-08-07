@@ -1,0 +1,74 @@
+.triangle_red{
+    width: 0;
+    height: 0;
+    border-width: 5px;
+    border-style: solid;
+    margin-left: 5px;
+    margin-top: 23px;
+    border-color: transparent transparent #e54847 transparent;
+  }
+.choose_card_wrap{
+    height: 100%;
+}
+.choose_card{
+    height: 40px;
+    width: 100%;
+    border-bottom: 1px solid #f1f1f1;
+    position: fixed;
+    top: 100px;
+    z-index: 110;
+    background: white;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    line-height: 20px;
+  }
+  .choose_card .choose_card_item{
+    display: flex;
+    justify-content: center;
+    width: 33%;
+    height: 20px;
+    border-right: 1px solid #f1f1f1;
+    font-size: 14px;
+    color: #777777;
+  }
+  .choose_card .choose_card_item .triangle_gray{
+    margin-top: 7px;
+    margin-left: 5px
+  }
+  .choose_card .choose_card_item .triangle_red{
+    margin-top: 4px;
+    margin-left: 5px
+  }
+
+  /* 二级菜单 */
+  .choose_card_list{
+      position: fixed;
+      left: 0;
+      top: 0;
+      z-index: 105;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.3)
+  }
+  .list_wrap{
+      width: 100%;
+      height: 446.5px;
+      background: #ffffff;
+      overflow: auto;
+      position: fixed;
+      top:140px;
+      left: 0;
+  }
+  .choose_address ul{
+    display: flex;
+  }
+  .choose_address ul .choose_address_is{
+    color: #e54847;
+  }
+  .choose_address .l_item_active{
+    color: #e54847;
+  }
+  .choose_address_connect{
+    display: flex;
+  }

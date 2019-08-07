@@ -1,21 +1,24 @@
-/* 影院 */
-.cinema .main .cinema_tabbar{
+/* ?? */
+.cineam_wrap,.cinema{
+  height: 100%;
+}
+.cinema .cinema_tabbar{
     width: 100%;
     height: 50px;
     display: flex;
-    background: #f1f1f1
+    background: #f1f1f1;
+    position: fixed;
+    top:50px;
+    z-index: 110;
   }
-  .cinema .main .cinema_tabbar .choose_city{
+  .cinema .cinema_tabbar .choose_city{
     padding-left: 15px; 
     padding-right: 20px;
     display: flex;
     line-height: 50px;
     color: #333333
   }
-  .cinema .main .cinema_tabbar .choose_city .triangle_gray{
-    margin-top: 22px
-  }
-  .cinema .main .cinema_tabbar .search_cinema{
+  .cinema .cinema_tabbar .search_cinema{
     width: 70%;
     height: 30px;
     background: white;
@@ -24,4 +27,71 @@
     line-height: 34px;
     color: #cccccc;
     border-radius: 8px;
+  }
+
+  /* ?? */
+
+  .cinema .main{
+    padding-top: 140px
+  }
+  .cinema .cinema_list li{
+    padding: 13px 0;
+    margin: 0 15px;
+    border-bottom: 1px solid #dddddd
+  }
+  .cinema .cinema_list li a{
+    display: block;
+    align-items: center;
+    width: 100%;
+  }
+  .cinema .cinema_list li a .cinema_name{
+    color :#000;
+    line-height: 23px;
+    font-size: 16px;
+  }
+  .cinema .cinema_list li a .q{
+    color: #f03d37;
+    font-size: 12px;
+  }
+  .cinema .cinema_list li a .q .price{
+    font-size: 20px;
+    color: #f03d37;
+  }
+  .cinema .cinema_list li a .address{
+    color: #666666;
+    line-height: 1.5;
+    font-size: 13px;
+    display: flex;
+    justify-content: space-between
+  }
+  .cinema .cinema_list li a .address .adderss_fir{
+    display: block;
+    width: 85%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+  .cinema .cinema_list li a .card{
+    /* display: flex; */
+    font-size: .6rem;
+    line-height: 15px;
+  }
+  .cinema .cinema_list li a .card p{
+    display: inline-block;
+    border: 1px solid;
+    border-radius: 4px;
+    padding: 0 2px;
+    margin: 4px;
+    height: 15px;
+  }
+  .cinema .cinema_list li a .discount{
+    display: flex;
+    font-size: 12px;
+    color: #999999;
+    line-height: 1.5;
+  }
+  .cinema .cinema_list li a .discount img{
+    width: 12px;
+    height: 12px;
+    margin: 3px ;
   }

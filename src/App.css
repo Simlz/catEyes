@@ -19,9 +19,11 @@ html,body,#root{
 .triangle_gray{
   width: 0;
   height: 0;
-  border-width: 6px;
+  border-width: 5px;
   border-style: solid;
-  border-color: #696969 transparent transparent transparent;
+  margin-left: 5px;
+  margin-top: 23px;
+  border-color: #999999 transparent transparent transparent;
 }
 
 

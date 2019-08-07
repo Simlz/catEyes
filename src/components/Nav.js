@@ -5,7 +5,7 @@ import {
 } from "react-router-dom"
 import router from "../router"
 
-import "../assets/css/nav.css"
+import "../assets/css/components/nav.css"
 
 export default class Nav extends Component {
     render() {

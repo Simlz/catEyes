@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 
 import Card from "../assets/images/card.png"
-import "../assets/css/noCard.css"
+import "../assets/css/components/noCard.css"
 
 export default class NoCard extends Component {
     render() {

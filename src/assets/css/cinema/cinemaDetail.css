@@ -1,0 +1,73 @@
+.cinema_detail{
+    height: 100%;
+}
+.cinema_detail .main{
+    background: #f1f1f1;
+    height: 100%;
+}
+.cinema_detail .main .cinema_detail_info{
+    width: 100%;
+    height: 100px;
+    margin-bottom: 10px;
+    background: #fff
+}
+.cinema_detail .main .cinema_detail_info .cinema_detail_name{
+    color: #333333;
+    padding: 10px 0 10px 15px;
+    font-size: 16px;
+    border-bottom: 1px solid #dddddd
+}
+.cinema_detail .main .cinema_detail_info .cinema_detail_adress{
+    display: flex;
+    padding-left: 15px;
+    align-items: center;
+    padding-top: 10px;
+}
+.cinema_detail .main .cinema_detail_info .cinema_detail_adress .address_icon2{
+    width: 19px;
+    height: 20px;
+}
+.cinema_detail .main .cinema_detail_info .cinema_detail_adress p{
+    width: 270px;
+    margin-right: 10px;
+    margin-left: 15px;
+    font-size: 14px;
+    line-height: 20px;
+    color: #999999;
+}
+.cinema_detail .main .cinema_detail_info .cinema_detail_adress .phone_icon{
+    width: 24px;
+    height: 24px;
+    padding: 8px;
+    border-left: 1px solid #dddddd
+}
+.cinema_detail .main .cinema_detail_feature{
+    padding-left: 15px;
+    background: white;
+}
+.cinema_detail .main .cinema_detail_feature .cinema_detail_feature_title{
+    padding: 10px 0;
+    font-size: 1.15em;
+    color: #555555;
+    font-weight: normal
+}
+
+.cinema_detail .main .cinema_detail_feature .cinema_detail_feature_item{
+    padding: 15px 15px 15px 0;
+    min-height: 22px;
+    border-top: 1px solid #dddddd
+}
+.cinema_detail .main .cinema_detail_feature .cinema_detail_feature_item div{
+    border:1px solid #87b6c4;
+    color :#87b6c4;
+    margin-right: 10px;
+    border-radius: 3px;
+    padding: 0 3px;
+    font-size: 12px;
+    margin-top:2px;
+    float: left;
+}
+.cinema_detail .main .cinema_detail_feature .cinema_detail_feature_item p{
+    font-size: 16px;
+    color: #333333;
+}

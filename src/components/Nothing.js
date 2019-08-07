@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 
 import "../assets/css/headers.css"
 import nothingImg from "../assets/images/nothing.jpg"
-import "../assets/css/nothing.css"
+import "../assets/css/components/nothing.css"
 
 export default class Nothing extends Component {
     render() {
