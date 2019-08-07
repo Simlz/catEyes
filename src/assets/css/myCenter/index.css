@@ -3,6 +3,9 @@
 .my_movie .main,.store .main,.vod .main,.membercard .main,.my_coupon .main{
   padding-bottom:0 
 }
+.mycenter .main{
+  padding: 50px 0
+}
 .mycenter,.main,.my_movie,.store,.vod,.membercard,.my_coupon{
   height: 100%;
 }

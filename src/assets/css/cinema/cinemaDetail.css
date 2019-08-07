@@ -4,6 +4,7 @@
 .cinema_detail .main{
     background: #f1f1f1;
     height: 100%;
+    padding: 50px 0
 }
 .cinema_detail .main .cinema_detail_info{
     width: 100%;

@@ -6,6 +6,9 @@
     height: 74px;
     color: #333333;
 }
+.shows .main {
+    padding: 50px 0
+}
 .shows .main{
     padding-bottom: 0
 }

@@ -16,6 +16,11 @@ class ChooseCard extends Component {
         }
     }
     handlerChangeChooseNum(num){
+        if(num===this.state.chooseNum){
+            this.setState({
+                chooseNum : 0
+            })
+        }
         this.setState({
             chooseNum : num
         })

@@ -26,15 +26,12 @@ class Cinema extends Component {
         }
         else{
             return (
-<<<<<<< HEAD
                 <div className="cineam_wrap">
                     <div className="cinema">
                         <Headers to="/cinema" label="影院"></Headers>
-=======
                 <div className="cinema">
                     <Headers to="/cinema" label="影院"></Headers>
                     <div className="main">
->>>>>>> 5e6cf689ffebf740cc9d6a8deafca7a60a27b54e
                         <div className="cinema_tabbar">
                             <Link to="citylist" className="choose_city">
                                 <p>城市</p>
@@ -44,7 +41,6 @@ class Cinema extends Component {
                                 <p className="iconfont">&#xe68d; 搜索</p>
                             </Link>
                         </div>
-<<<<<<< HEAD
                         <div className="main">
                             <ul className="cinema_list">
                                 {posts.cinemas.map((v,k)=>{
@@ -88,7 +84,6 @@ class Cinema extends Component {
                 </div>
                 
                 
-=======
                         <ul className="cinema_list">
                             {posts.cinemas.map((v,k)=>{
                                 return(
@@ -100,7 +95,6 @@ class Cinema extends Component {
                     </div>
                 </div>
                 
->>>>>>> 5e6cf689ffebf740cc9d6a8deafca7a60a27b54e
             ) 
         }
             
