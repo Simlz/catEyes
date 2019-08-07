@@ -16,7 +16,7 @@ export default class ComingSoon extends Component {
     constructor(){
         super()
         this.state = {
-            Central:[],
+            Central:{},
             citylist:[]
             
         }
@@ -34,7 +34,7 @@ export default class ComingSoon extends Component {
                 null
             )
         } 
-        console.log(this.state.Central)
+        // console.log(this.state.Central)
         return (
             <div className="movie">
                 <Headers to="/" label="猫眼电影"></Headers>
@@ -86,33 +86,33 @@ export default class ComingSoon extends Component {
 
                     <div>
                             {
-                                this.state.Central.map((v,key)=>{
+                                Object.keys(this.state.Central).map((item,key)=>{
                                     return(
                                         <div key={key} className="movie_body">
                                             <div className="title">
-                                                {
-                                                    v.comingTitle === v.showst?
-                                                    <p style={{dispatch:'none'}}></p>
-                                                    :v.comingTitle
-                                                }
-                                                {/* {v.comingTitle === v.showInfo ?:v.comingTitle} */}
+                                                { item }
                                             </div>
-                                        <ul>
-                                            <Link to={'/detailsdetails/'+v.id}>
-                                                <li>
-                                                    <div className="pic_show"><img src={filter.filter(v.img,"128.180")}/></div>
-                                                    <div className="info_list">
-                                                        <h2>{v.nm}</h2>
-                                                        <p><span className="grade">{v.wish}</span>人想看</p>
-                                                        <span>主演:{v.star}</span>
-                                                        <p>{v.rt}上映</p>
-                                                    </div>
-                                                    <div className="btn_mall">
-                                                    { v.showst===4?<div style={{background:'blue'}}>预售</div>:<div style={{background:'#faaf00'}}>想看</div>}
-                                                    </div>
-                                                </li>
-                                            </Link>
-                                        </ul>
+                                         <ul>
+                                            {
+                                                this.state.Central[item].map(v=>(
+                                                    <Link key={v.id} to={'/detailsdetails/'+v.id}>
+                                                        <li>
+                                                            <div className="pic_showimg"><img src={filter.filter(v.img,"128.180")}/></div>
+                                                            <div className="info_list">
+                                                                <h2>{v.nm}</h2>
+                                                                <p><span className="grade">{v.wish}</span>人想看</p>
+                                                                <span>主演:{v.star}</span>
+                                                                <p>{v.rt}上映</p>
+                                                            </div>
+                                                            <div className="btn_mall">
+                                                            { v.showst===4?<div style={{background:'blue'}}>预售</div>:<div style={{background:'#faaf00'}}>想看</div>}
+                                                            </div>
+                                                        </li>
+                                                    </Link>
+                                                ))
+                                            }
+                                  
+                                        </ul> 
                                        
                                     </div>
                                     )
@@ -128,8 +128,19 @@ export default class ComingSoon extends Component {
     getCentral(){
         axios.get("/maoyan/ajax/comingList?ci=230&token=KG26PDO4NUGljWWBG8KRnmL7bmYAAAAAzwgAAKGUiXnjZvA0mK9pk5pyjoVK_Kr3sPycbTM_q5H9h19sFNDXhLSqb_WnoaeqUHJvkw&limit=10")
         .then(({data})=>{
+            let result =  data.coming.reduce((obj, item)=>{
+                // obj[item.comingTitle] = obj[item.comingTitle] || []
+                if(obj[item.comingTitle]) {
+                    obj[item.comingTitle].push(item)
+                }
+                else {
+                    obj[item.comingTitle] = [item]
+                }
+                return obj                
+            },{})
+            
             this.setState({
-                Central:data.coming
+                Central:result
             })
             // console.log(data.coming);
         })

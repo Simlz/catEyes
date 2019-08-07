@@ -1,14 +1,14 @@
-.movie_detail{
+.movie_detail-e{
     width: 100%;
     font-size: 13px;
     
 }
-.mainDetail{
+.mainDetail-e{
     width: 100%;
     padding-top:50px; 
     height: 188px;
 }
- .login{
+ .login-e{
     width: 100%;
     height: 200px;
     /* background-image:url(//p0.meituan.net/700.500/movie/005955214d5b3e50c910d7a511b0cb571445301.jpg);
@@ -17,20 +17,20 @@
     background-size: cover; */
     background: rgba(0, 0, 0, 0.671);
    }
-.login .pic_show img{
+.login-e .pic_show-e img{
     width: 110px;
     height: 150px;
     margin: 25px 20px;
     float: left;
     z-index: 9;
 }
-.login .info_list h2{
+.login-e .info_list-e h2{
     float: left;
     padding: 20px 0 0;
     margin-left:-10px; 
     color: #fff;
 }
-.login .info_list h3{
+.login-e .info_list-e h3{
     width: 100px;
     height: 20px;
     float: left;
@@ -39,18 +39,19 @@
     font-weight: 700;
     color: #fc0;
 }
-.login .info_list span{
-    width: 80px;
+/* .login-e .info_list-e span{
+    width: 100px;
     height: 20px;
     float: left;
     color: #fff;
+    display: in;
     position: relative;
     left: -60px;
     top: 4px;
     font-size: 13px;
     color: #cfcaca;
-}
-.login .info_list p{
+} */
+.login-e .info_list-e p{
     width: 160px;
     height: 20px;
     float: left;
@@ -61,14 +62,14 @@
     color: #cfcaca;
 }
 
-.login_footer{
+.login_footer-e{
     font-size: 27px;
     color: #cfcaca;
     position: absolute;
     right: 10px;
     top: 125px;
 }
- .info_list-right{
+ .info_list-right-e{
     width: 150px;
     height: 20px;
     background-color: #999;

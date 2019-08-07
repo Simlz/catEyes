@@ -40,7 +40,7 @@ export default class MovieDetail extends Component {
                                 <p>{detail.enm}</p>
                                 <h3>{detail.sc}</h3>
                                 <span>(46.7万人评)</span>
-                                <p>{detail.cat}</p>
+                                <p>{detail.cat}<i className="info_list-right">3D IMAX</i></p>
                                 <div><p>{detail.src}/{detail.dur}小时</p></div>
                                 <div><p>{detail.pubDesc}</p></div>
                             </div>

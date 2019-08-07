@@ -20,7 +20,7 @@ export default class Search extends Component {
         if(this.state.searchList === "[]"){
             this.state = null
         }
-        console.log(this.state.searchList.list);
+        // console.log(this.state.searchList.list);
         return (
             <div className="search">
                 <Headers to="/search" label="猫眼电影"></Headers>
@@ -31,7 +31,7 @@ export default class Search extends Component {
                       <input type="text" onChange={this.handleClick.bind(this)}  ref="SearchName" placeholder="搜电影、搜影院"  />
                         
                         <button onClick={()=>{
-                            this.props.history.go(-1)
+                            this.props.history.push("/")
                         }}>取消</button> 
                    </div>
                    <div className="Line"></div>
@@ -81,13 +81,13 @@ export default class Search extends Component {
             
             axios.get("/maoyan/ajax/search?kw="+words+"&cityId=230&stype=-1")
             .then(({data})=>{
-                if(!data.movies.list){
+                if(data.movies && data.movies.list){
                     this.setState({
-                        searchList:[]
+                        searchList:data.movies.list
                     })
                 }else{
                     this.setState({
-                        searchList:data.movies.list
+                        searchList: []
                     })
                 }
                

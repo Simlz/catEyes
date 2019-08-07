@@ -9,8 +9,8 @@
 .city_body .city_hot ul li{ float: left; background: #fff; width: 29%; height: 33px; margin-top: 15px; margin-left: 3%; padding: 0 4px; border: 1px solid #e6e6e6; border-radius: 3px; line-height: 33px; text-align: center; box-sizing: border-box;}
 .city_body .city_sort div{ margin-top: 20px;}
 .city_body .city_sort h2{ padding-left: 15px; line-height: 30px; font-size: 14px; background:#F0F0F0; font-weight: normal;}
-.city_body .city_sort ul{ padding-left: 10px; margin-top: 10px;}
-.city_body .city_sort ul li{ line-height: 30px; line-height: 30px;}
+.city_body .city_sort ul{display: block;display: flex; justify-content: center; align-items: center;flex-wrap: wrap; padding-left: 10px; margin-top: 10px;}
+.city_body .city_sort ul li{width:63.3%; line-height: 30px; line-height: 30px;}
 .city_body .city_index{background:#fff;position:fixed;right:0;margin-top:20px; width:20px; display: flex; flex-direction:column;text-align: center; border-left:1px #e6e6e6 solid;}
 
 .title{

@@ -3,12 +3,12 @@ import React, { Component } from 'react'
 import "../../assets/css/movie/citylist.css"
 import {connect} from 'react-redux'
 import {getAllCityList} from '../../store/actions/Movie/City'
-import {NavLink} from 'react-router-dom'
+import {Link} from 'react-router-dom'
 
  class CityList extends Component {
 
     render() {
-        console.log(this.props)
+        // console.log(this.props)
         let { city } = this.props
         if(JSON.stringify(city) === "{}"){
             return(
@@ -16,44 +16,40 @@ import {NavLink} from 'react-router-dom'
             )
         }
         // console.log(this.props.city.cts[0].id);
-        console.log(this.props.city.cts[1].nm,);
+        // console.log(this.props.city.cts);
         return (
             <div className="city_body">
-                <h2>热门城市</h2>
+                {/* <h2>热门城市</h2> */}
+            <div  className="city_list">
+            <div className="city_hot">
+                    <ul>  
                 {
                     this.props.city.cts.map((v,i)=>{
                         return(
-                            <NavLink to={{
+                            <Link className="fixList" key={i} to={{
                                 pathname:"/",
                                 state:{
                                     id:this.props.city.cts[i].id,
-                                    name:this.props.city.cts[i].nm,
+                                    name:this.props.city.cts[i].name
                                 }
-                            }} key={i}>
-                                <div  className="city_list">
-                                    <div className="city_hot">
-                                        <ul className="clearfix">
-                                            <li onClick={this.getSetonClick.bind(this,v.nm)}>{v.nm}</li>
-                                        </ul>
-                                    </div>
-                                        {/* <div className="city_sort">
-                                            <div>
-                                                <h2></h2>
-                                                <ul>
-                                                    <li>{}</li>
-                                                </ul>
-                                            </div>
-                                        </div> */}
-                                </div>
-                            </NavLink>
-                        )
+                            }}>
+                                <li className="hotitem" onClick={this.getSetonClick.bind(this,(v.id,v.nm))}>{v.nm}</li>
+                            </Link>
+                        ) 
                     })
                 }
+
+                    </ul>
+                </div>
+                        
+                </div>
             </div>
-        )
+)
+
     }
+    
     getSetonClick = (name) =>{
-        localStorage.name=name;
+        localStorage.name=name
     }
     componentDidMount() {
         this.props.getAllCityList()

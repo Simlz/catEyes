@@ -36,8 +36,8 @@ import filter from '../../common/Filters'
             )
         } 
         
-        console.log(this.props)
-        // console.log(this.props.location.state.name)
+        // console.log(this.props)
+        console.log(this.props.location.state.name)
         return (
             <div className="movie">
                 <Headers to="/" label="猫眼电影"></Headers>
