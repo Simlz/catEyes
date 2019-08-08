@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import { connect } from "react-redux"
-import { dataNow } from "../common/tool"
 
 import { getChooseCard,getAllCinemaList } from "../store/actions/Cinema/index"
 
@@ -146,11 +145,7 @@ class ChooseCard extends Component {
                                             return(
                                                 <div
                                                     key={v.id} 
-<<<<<<< HEAD
                                                     onClick={()=>this.handlerChangeAdressId(v.id,v.name)}
-=======
-                                                    onClick={()=>this.handlerChangeAdressId(v.id)}
->>>>>>> fae798fba21cb04aa76ddc5f72dbce65668ca22b
                                                     className = {this.state.adressId === v.id ? "l_item_active" : null}
                                                 >{v.name}<span>({v.count})</span>
                                                 </div>
@@ -183,11 +178,7 @@ class ChooseCard extends Component {
                                             return(
                                                 <div
                                                     key={v.id} 
-<<<<<<< HEAD
                                                     onClick={()=>this.handlerChangeLineId(v.id,v.name)}
-=======
-                                                    onClick={()=>this.handlerChangeLineId(v.id)}
->>>>>>> fae798fba21cb04aa76ddc5f72dbce65668ca22b
                                                     className = {this.state.lineId === v.id ? "l_item_active" : null}
                                                 >{v.name}<span>({v.count})</span>
                                                 </div>

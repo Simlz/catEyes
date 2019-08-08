@@ -49,15 +49,9 @@ import {Link} from 'react-router-dom'
     }
     
     getSetonClick = (name,cityId) =>{
-<<<<<<< HEAD
-        localStorage.name=name
-        localStorage.cityId = cityId
-        this.props.history.go(-1)
-=======
         localStorage.name=name;
         localStorage.cityId=cityId;
         this.props.history.go(-1);
->>>>>>> fae798fba21cb04aa76ddc5f72dbce65668ca22b
     }
     componentDidMount() {
         this.props.getAllCityList()
