@@ -102,7 +102,7 @@ class ChooseCard extends Component {
         else{
             return (
                 <div className="choose_card_wrap">
-                    <div className="choose_card">
+                    <div className="choose_card" style={{position:this.props.display,top:this.props.top}}>
                         <div className="choose_card_item" onClick={()=>this.handlerChangeChooseNum(1)}> 
                             <div 
                                 style={{color:this.state.chooseNum === 1 ? "#e54847" : ""}}
@@ -127,7 +127,7 @@ class ChooseCard extends Component {
                     </div>
                     {/* 地区 */}
                     {this.state.chooseNum === 1 ? <div className="choose_card_list">
-                        <div className="list_wrap">
+                        <div className="list_wrap" style={{position:this.props.display,top:this.props.tops}}>
                             <div className="choose_address">
                                 <ul>
                                     <li 
@@ -210,7 +210,7 @@ class ChooseCard extends Component {
                     </div> : null}
                     {/* 品牌 */}
                     {this.state.chooseNum === 2 ? <div className="choose_card_list">
-                        <div className="list_wrap">
+                        <div className="list_wrap" style={{position:this.props.display,top:this.props.tops}}>
                             <div className="brand_list">
                                 {cardList.brand.subItems.map((v)=>{
                                     return(
@@ -230,7 +230,7 @@ class ChooseCard extends Component {
                     </div> : null}
                     {/* 特色 */}
                     {this.state.chooseNum === 3 ? <div className="choose_card_list">
-                        <div className="list_wrap">
+                        <div className="list_wrap" style={{position:this.props.display,top:this.props.tops}}>
                             <div className="list_wrap_thr">
                                 <div className="serve_title">特色功能</div>
                                 <div className="serve_context">

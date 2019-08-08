@@ -3,7 +3,7 @@ import { dataNow } from "../../../common/tool"
 
 // 获取影院列表
 export const getAllCinemaList = 
-  ({day=dataNow(),offset=0,districtId=-1,lineId=-1,hallType=-1,brandId=-1,serviceId=-1,areaId=-1,stationId=-1,cityId=localStorage.cityId}={}) => dispatch => {
+  ({day=dataNow(),offset=0,districtId=-1,lineId=-1,hallType=-1,brandId=-1,serviceId=-1,areaId=-1,stationId=-1,cityId=localStorage.cityId?localStorage.cityId:1}={}) => dispatch => {
   fetch("maoyan/ajax/cinemaList?day="+
   day+
   "&offset="+
@@ -31,6 +31,7 @@ export const getAllCinemaList =
         payload: posts
       })
     )
+    
 }
 
 // 获取影院详情

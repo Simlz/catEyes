@@ -12,15 +12,15 @@ import NoCinema from "../../components/NoCinema"
 import { getAllCinemaList } from "../../store/actions/Cinema/index"
 
 class Cinema extends Component {
-
+    
     componentDidMount(){
         this.props.getAllCinemaList();
     }
 
     render() {
-        console.log(this.props)
+        
         let { posts } = this.props
-        let cityName = localStorage.name
+        console.log(posts)
         if(JSON.stringify(posts) === "{}"){
             return(
                 null
@@ -36,7 +36,7 @@ class Cinema extends Component {
                     <div className="main">
                         <div className="cinema_tabbar">
                             <Link to="citylist" className="choose_city">
-                                <p>{cityName}</p>
+                                <p>{localStorage.name?localStorage.name:'北京'}</p>
                                 <p className="triangle_gray"></p>
                             </Link>
                             <Link to="search" className="search_cinema">
@@ -44,7 +44,7 @@ class Cinema extends Component {
                             </Link>
                         </div>
                         <div className="main">
-                            {posts.cinemas.length>0 ? <ul className="cinema_list">
+                            <ul className="cinema_list">
                                     {posts.cinemas.map((v,k)=>{
                                         return(
                                             <li key={v.id}>
@@ -79,8 +79,7 @@ class Cinema extends Component {
                                         )
                                     })}
                                 </ul> 
-                            : <NoCinema></NoCinema>}
-                            {/* <Nav></Nav> */}
+                            
                         </div>
                     </div>
                     <ChooseCard></ChooseCard>
