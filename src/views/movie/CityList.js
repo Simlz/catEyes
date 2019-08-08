@@ -27,13 +27,13 @@ import {Link} from 'react-router-dom'
                     this.props.city.cts.map((v,i)=>{
                         return(
                             <Link className="fixList" key={i} to={{
-                                pathname:"/",
+                                pathname:"#",
                                 state:{
                                     id:this.props.city.cts[i].id,
                                     name:this.props.city.cts[i].name
                                 }
                             }}>
-                                <li className="hotitem" onClick={this.getSetonClick.bind(this,(v.id,v.nm))}>{v.nm}</li>
+                                <li className="hotitem" onClick={()=>this.getSetonClick(v.nm,v.id)}>{v.nm}</li>
                             </Link>
                         ) 
                     })
@@ -48,8 +48,10 @@ import {Link} from 'react-router-dom'
 
     }
     
-    getSetonClick = (name) =>{
-        localStorage.name=name
+    getSetonClick = (name,cityId) =>{
+        localStorage.name=name;
+        localStorage.cityId=cityId;
+        this.props.history.go(-1);
     }
     componentDidMount() {
         this.props.getAllCityList()

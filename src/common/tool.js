@@ -4,7 +4,7 @@ export const dataNow = function(){
 }
 
 export const cheange_wh = (url,arg)=>{
-    return url.replace(/w\.h/,arg);
+    return url.replxace(/w\.h/,arg);
 }
 
 export const afterShow = (startTime,movieTime)=>{

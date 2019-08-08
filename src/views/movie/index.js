@@ -37,7 +37,7 @@ import filter from '../../common/Filters'
         } 
         
         // console.log(this.props)
-        console.log(this.props.location.state.name)
+        // console.log(this.props.location.state.name)
         return (
             <div className="movie">
                 <Headers to="/" label="猫眼电影"></Headers>
@@ -70,7 +70,7 @@ import filter from '../../common/Filters'
                                     <ul>
                                         <Link to={"/moviedetail/"+v.id} key={i}>
                                             <li>
-                                                <div className="pic_show"><img src={filter.filter(v.img,"128.180")}/></div>
+                                                <div className="pic_show"><img src={filter.filter(v.img,"128.180")} alt="" /></div>
                                                 <div className="info_list">
                                                     <h2>{v.nm}</h2>
                                                     <p>观众评 <span className="grade">{v.sc}</span></p>

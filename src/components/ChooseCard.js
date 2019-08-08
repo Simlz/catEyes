@@ -87,7 +87,6 @@ class ChooseCard extends Component {
                                             return(
                                                 <div
                                                     key={v.id} 
-                                                    className="choose_address_connect_l_item"
                                                     onClick={()=>this.handlerChangeAdressId(v.id)}
                                                     className = {this.state.adressId === v.id ? "l_item_active" : null}
                                                 >{v.name}<span>({v.count})</span>
@@ -115,7 +114,6 @@ class ChooseCard extends Component {
                                             return(
                                                 <div
                                                     key={v.id} 
-                                                    className="choose_address_connect_l_item"
                                                     onClick={()=>this.handlerChangeLineId(v.id)}
                                                     className = {this.state.lineId === v.id ? "l_item_active" : null}
                                                 >{v.name}<span>({v.count})</span>
