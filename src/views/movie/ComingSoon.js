@@ -69,7 +69,7 @@ export default class ComingSoon extends Component {
                                 return(
                                         <Link to={"/"} key={i}>
                                             <li>
-                                                <div className="pic_show"><img src={filter.filter(v.img,"170.200")}/></div>
+                                                <div className="pic_show"><img src={filter.filter(v.img,"170.200")} alt="" /></div>
                                                 <div className="info_list">
                                                     <p>{v.nm}</p>
                                                     <span>{v.comingTitle}</span>
@@ -97,7 +97,7 @@ export default class ComingSoon extends Component {
                                                 this.state.Central[item].map(v=>(
                                                     <Link key={v.id} to={'/detailsdetails/'+v.id}>
                                                         <li>
-                                                            <div className="pic_showimg"><img src={filter.filter(v.img,"128.180")}/></div>
+                                                            <div className="pic_showimg"><img src={filter.filter(v.img,"128.180")} alt="" /></div>
                                                             <div className="info_list">
                                                                 <h2>{v.nm}</h2>
                                                                 <p><span className="grade">{v.wish}</span>人想看</p>

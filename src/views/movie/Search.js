@@ -17,8 +17,9 @@ export default class Search extends Component {
     }
     
     render() {
-        if(this.state.searchList === "[]"){
-            this.state = null
+        let searchList = this.state.searchList
+        if( searchList=== "[]"){
+                searchList = null
         }
         // console.log(this.state.searchList.list);
         return (
@@ -38,9 +39,9 @@ export default class Search extends Component {
 
                    <div className="Outercity">
                         <p>电影/电视剧/综艺</p>
-                    <div className="Line-bottom"></div>     
+                    <div className="Line-bottom"></div>   
+                    
                         <div className="Central">
-                        
                                 {
                                     this.state.searchList.map((v,i)=>{
                                         return(
@@ -48,7 +49,7 @@ export default class Search extends Component {
                                                 <ul>
                                                     <Link to={"/detailsdetails/"+v.id} key={i}>
                                                         <li>
-                                                            <div className="pic_show"><img src={filter.filter(v.img,"128.180")}/></div>
+                                                            <div className="pic_show"><img src={filter.filter(v.img,"128.180")} alt="" /></div>
                                                             <div className="info_list">
                                                                 <h2>{v.nm}</h2>
                                                                 <p><span className="grade">{v.enm}</span></p>
@@ -60,39 +61,35 @@ export default class Search extends Component {
                                                     </Link>
                                                 </ul>
                                             </div>
-                                            
                                         )
-                                        
                                     })
                                 }
                         </div>
-                   </div>
                     
-
-
+                   </div>
                 </div> 
-                
             </div>
         )
     }
-    
-        handleClick =() =>{
-            let  words = this.refs.SearchName.value;
-            
-            axios.get("/maoyan/ajax/search?kw="+words+"&cityId=230&stype=-1")
-            .then(({data})=>{
-                if(data.movies && data.movies.list){
-                    this.setState({
-                        searchList:data.movies.list
-                    })
-                }else{
-                    this.setState({
-                        searchList: []
-                    })
-                }
-               
+ 
+handleClick =() =>{
+    let  words = this.refs.SearchName.value;
+    axios.get("/maoyan/ajax/search?kw="+words+"&cityId=230&stype=-1")
+    .then(({data})=>{
+        if(data.movies && data.movies.list){
+            setTimeout(()=>{
+                this.setState({
+                    searchList:data.movies.list
+                })
+            },2000);
+           
+        }else{
+            this.setState({
+                searchList: []
             })
         }
+    })
+}
    
     
 }

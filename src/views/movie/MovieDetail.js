@@ -33,7 +33,7 @@ export default class MovieDetail extends Component {
                     <Link to={'/detailsdetails/'+detail.id}>
                         <div className="login">
                             <div className="pic_show">
-                                <img src={filter.filter(detail.img,"128.180")}/>
+                                <img src={filter.filter(detail.img,"128.180")} alt="" />
                             </div>
                             <div className="info_list">
                                 <h2>{detail.nm}</h2>
@@ -41,8 +41,8 @@ export default class MovieDetail extends Component {
                                 <h3>{detail.sc}</h3>
                                 <span>(46.7万人评)</span>
                                 <p>{detail.cat}<i className="info_list-right">3D IMAX</i></p>
-                                <div><p>{detail.src}/{detail.dur}小时</p></div>
-                                <div><p>{detail.pubDesc}</p></div>
+                                <p>{detail.src}/{detail.dur}小时</p>
+                                <p>{detail.pubDesc}</p>
                             </div>
                             <div className="login_footer">></div>
                         </div>
