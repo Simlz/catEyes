@@ -142,7 +142,7 @@
 .shows .main .shows_day{
     overflow: auto;
     height: 45px;
-    width: 100%;
+    white-space: nowrap;
     padding-left: 15px;
     border-top: 1px solid #f1f1f1;
     border-bottom: 1px solid #f1f1f1;
@@ -162,9 +162,7 @@
 
 /* 折扣 */
 .shows .main .shows_vipInfo{
-    padding: 0 15px;
     height: 42px;
-    width: 100%;
     line-height: 42px;
     background: #fff5ea;
 
@@ -177,6 +175,7 @@
 }
 .shows .main .shows_vipInfo .shows_vipInfo_item div{
     display: inline-block;
+    margin-left: 10px;
     width: 37px;
     height: 15px;
     font-size: 10px;
@@ -191,7 +190,7 @@
     display: inline-block;
     font-size: 12px;
     color: #fa9600;
-    width: 56%;
+    width: 52%;
     text-overflow: ellipsis;
     overflow: hidden;
     white-space: nowrap;

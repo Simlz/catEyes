@@ -7,6 +7,7 @@ import Nav from "../../components/Nav"
 import Headers from "../../components/Headers"
 import "../../assets/css/cinema/index.css"
 import iconCard from "../../assets/images/icon_card.png"
+import NoCinema from "../../components/NoCinema"
 
 import { getAllCinemaList } from "../../store/actions/Cinema/index"
 
@@ -14,11 +15,12 @@ class Cinema extends Component {
 
     componentDidMount(){
         this.props.getAllCinemaList();
-        
     }
 
     render() {
+        console.log(this.props)
         let { posts } = this.props
+        let cityName = localStorage.name
         if(JSON.stringify(posts) === "{}"){
             return(
                 null
@@ -34,7 +36,7 @@ class Cinema extends Component {
                     <div className="main">
                         <div className="cinema_tabbar">
                             <Link to="citylist" className="choose_city">
-                                <p>城市</p>
+                                <p>{cityName}</p>
                                 <p className="triangle_gray"></p>
                             </Link>
                             <Link to="search" className="search_cinema">
@@ -42,55 +44,47 @@ class Cinema extends Component {
                             </Link>
                         </div>
                         <div className="main">
-                            <ul className="cinema_list">
-                                {posts.cinemas.map((v,k)=>{
-                                    return(
-                                        <li key={v.id}>
-                                            <Link to={"/cinema/shows/"+v.id}>
-                                                <div className="cinema_name">
-                                                    <span>{v.nm}</span>
-                                                    <span className="q"><span className="price">  {v.sellPrice}</span>  元起</span>
-                                                </div>
-                                                <div className="address">
-                                                    <span className="adderss_fir">{v.addr}</span>
-                                                    <span>{v.distance}</span>
-                                                </div>
-                                                <div className="card">
-                                                    {v.tag.allowRefund ? <p style={{color:"#589daf",borderColor:"#589daf"}}>退</p> :null}
-                                                    {v.tag.endorse ? <p style={{color:"#589daf",borderColor:"#589daf"}}>改签</p> :null}
-                                                    {v.tag.snack ? <p style={{color:"#f90",borderColor:"#f90"}}>小吃</p> :null}
-                                                    {v.tag.vipTag ? <p style={{color:"#f90",borderColor:"#f90"}}>折扣卡</p> :null} 
-                                                    {v.tag.hallTypeVOList.length>0? v.tag.hallTypeVOList.map(
-                                                        (item,key)=>{
-                                                            return(
-                                                                <p style={{color:"#589daf",borderColor:"#589daf"}} key={key}>{item.name}</p>
-                                                            )
-                                                        }
-                                                    )  : null}
-                                                </div>
-                                                <div className="discount">
-                                                    <img src={iconCard} alt=""/>
-                                                    <p>{v.promotion.cardPromotionTag ? v.promotion.cardPromotionTag : "暂无优惠"}</p>
-                                                </div>
-                                            </Link>
-                                        </li>
-                                    )
-                                })}
-                            </ul> 
-                            <Nav></Nav>
+                            {posts.cinemas.length>0 ? <ul className="cinema_list">
+                                    {posts.cinemas.map((v,k)=>{
+                                        return(
+                                            <li key={v.id}>
+                                                <Link to={"/cinema/shows/"+v.id}>
+                                                    <div className="cinema_name">
+                                                        <span>{v.nm}</span>
+                                                        <span className="q"><span className="price">  {v.sellPrice}</span>  元起</span>
+                                                    </div>
+                                                    <div className="address">
+                                                        <span className="adderss_fir">{v.addr}</span>
+                                                        <span>{v.distance}</span>
+                                                    </div>
+                                                    <div className="card">
+                                                        {v.tag.allowRefund ? <p style={{color:"#589daf",borderColor:"#589daf"}}>退</p> :null}
+                                                        {v.tag.endorse ? <p style={{color:"#589daf",borderColor:"#589daf"}}>改签</p> :null}
+                                                        {v.tag.snack ? <p style={{color:"#f90",borderColor:"#f90"}}>小吃</p> :null}
+                                                        {v.tag.vipTag ? <p style={{color:"#f90",borderColor:"#f90"}}>折扣卡</p> :null} 
+                                                        {v.tag.hallTypeVOList.length>0? v.tag.hallTypeVOList.map(
+                                                            (item,key)=>{
+                                                                return(
+                                                                    <p style={{color:"#589daf",borderColor:"#589daf"}} key={key}>{item.name}</p>
+                                                                )
+                                                            }
+                                                        )  : null}
+                                                    </div>
+                                                    <div className="discount">
+                                                        <img src={iconCard} alt=""/>
+                                                        <p>{v.promotion.cardPromotionTag ? v.promotion.cardPromotionTag : "暂无优惠"}</p>
+                                                    </div>
+                                                </Link>
+                                            </li>
+                                        )
+                                    })}
+                                </ul> 
+                            : <NoCinema></NoCinema>}
+                            {/* <Nav></Nav> */}
                         </div>
                     </div>
                     <ChooseCard></ChooseCard>
-                </div>
-                
-                
-                        <ul className="cinema_list">
-                            {posts.cinemas.map((v,k)=>{
-                                return(
-                                    <li key={v.id}>1</li>
-                                )
-                            })}
-                        </ul>
+                    </div>
                         <Nav></Nav>
                     </div>
                 </div>

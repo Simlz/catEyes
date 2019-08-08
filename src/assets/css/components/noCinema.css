@@ -1,0 +1,17 @@
+.no_cinema{
+    position: relative;
+}
+.no_cinema div{
+    position: absolute;
+    width: 100%;
+    top: 240px;
+    text-align: center;
+    font-size: 14px;
+    color: #777777;
+}
+.no_cinema img{
+    position: absolute;
+    left: 50%;
+    top: 120px;
+    margin-left: -49px;
+}

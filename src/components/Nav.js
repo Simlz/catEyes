@@ -17,7 +17,7 @@ export default class Nav extends Component {
                         return(
                             <NavLink key={v.id} to={v.to} className="nav_item" exact={v.exact}  activeStyle={{color:"#f03d37"}}>
                                 <p className={v.icon}></p>
-                                <p className="nav_title">电影</p>
+                                <p className="nav_title">{v.context}</p>
                             </NavLink> 
                         )
                     }

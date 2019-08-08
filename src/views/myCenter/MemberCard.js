@@ -15,7 +15,7 @@ export default class MemberCard extends Component {
                 <Headers to="mycenter/membercard" label="我的折扣卡"></Headers>
                 <div className="main">
                     <NoCard></NoCard>
-                    <button type="button" onClick={()=>this.handlerClick()}>登陆</button>
+                    {/* <button type="button" onClick={()=>this.handlerClick()}>登陆</button> */}
                 </div> 
             </div>
         )

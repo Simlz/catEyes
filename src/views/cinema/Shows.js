@@ -40,7 +40,6 @@ class Shows extends Component {
               slideShadows : false
             },
         })
-        // console.log(document.getElementsByClassName("swiper-slide-active")[0])
     }
     render() {
         let { posts } = this.props
@@ -113,18 +112,20 @@ class Shows extends Component {
                                 })}
                             </div>
                             {/* 折扣 */}
-                            <div className="shows_vipInfo">
-                                {posts.showData.vipInfo.map((v,k)=>{
-                                    return(
-                                        // 会员卡有链接后期改为Link
-                                        <Link to="/mycenter/vipcard/1" key={k} className="shows_vipInfo_item">
-                                            <div>{v.tag}</div>
-                                            <p>{v.title}</p>
-                                            <span>{v.process} ></span>
-                                        </Link>
-                                    )
-                                })}
-                            </div>
+                            {posts.showData.hasOwnProperty("vipInfo")?
+                                <div className="shows_vipInfo">
+                                    {posts.showData.vipInfo.map((v,k)=>{
+                                        return(
+                                            // 会员卡有链接后期改为Link
+                                            <Link to="/mycenter/vipcard/1" key={k} className="shows_vipInfo_item">
+                                                <div>{v.tag}</div>
+                                                <p>{v.title}</p>
+                                                <span>{v.process} ></span>
+                                            </Link>
+                                        )
+                                    })}
+                                </div>
+                            :null}
                             {/* 电影场次 */}
                             <div className="shows_plist">
                                 {posts.showData.movies[0].shows[this.state.dateShowKey].plist.map((v,k)=>{
@@ -140,9 +141,9 @@ class Shows extends Component {
                                             </div>
                                             <div className="shows_plist_item_price">
                                                 <div className="shows_plist_item_vipPrice">
-                                                    <p>￥{v.vipPrice/1+5}</p>
-                                                    <span>{v.vipPriceName}</span>
-                                                    <b>￥{v.vipPrice}</b>
+                                                    <p>￥{v.vipPrice?v.vipPrice/1+5:39}</p>
+                                                    {v.vipPriceName?<span>{v.vipPriceName}</span>:null}
+                                                    {v.vipPrice?<b>￥{v.vipPrice}</b>:null}
                                                 </div>
                                                 <span>{v.vipPriceNameNew}特惠</span>
                                             </div>
@@ -177,9 +178,7 @@ class Shows extends Component {
                                                 <div className="show_movies_deallist_item_r_button">去购买</div>
                                             </div>
                                         </Link>
-                                            
                                     )
-                                    
                                 })}
                             </div>
                         </div>
