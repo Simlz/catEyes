@@ -39,6 +39,7 @@ import filter from '../../common/Filters'
         
         // console.log(this.props)
         // console.log(this.props.location.state.name)
+        // console.log(localStorage.cityId)
         return (
             <div className="movie">
                 <Headers to="/" label="猫眼电影"></Headers>
@@ -85,7 +86,6 @@ import filter from '../../common/Filters'
                                             </li>
                                         </Link>
                                     </ul>
-                                   
                                 </div>
                             )
                         })
@@ -98,7 +98,7 @@ import filter from '../../common/Filters'
 
 
     componentDidMount() {
-        this.props.getAllMovieList(this.props.location.state.id);
+        this.props.getAllMovieList(localStorage.cityId);
         
     }
     
