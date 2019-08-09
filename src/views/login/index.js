@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import Headers from "../../components/Headers"
 
 export default class Login extends Component {
     handlerClick(){
@@ -6,9 +7,12 @@ export default class Login extends Component {
     }
     render() {
         return (
-            <div>
-                denglu
-                <button type="button">??</button>
+            <div className="user_login">
+                <Headers to="/login" label="登录"></Headers>
+                <div className="main">
+                    denglu
+                    <button type="button">登录</button>
+                </div>
             </div>
         )
     }

@@ -80,7 +80,6 @@ class Cinema extends Component {
                                     })}
                                 </ul> 
                             : <NoCinema></NoCinema>}
-                            {/* <Nav></Nav> */}
                         </div>
                     </div>
                     <ChooseCard></ChooseCard>

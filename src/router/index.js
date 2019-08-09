@@ -3,6 +3,7 @@ import Cinema from "../views/cinema"
 import MyCenter from "../views/myCenter"
 import Search from "../views/movie/Search"
 import CityList from "../views/movie/CityList"
+import Login from "../views/login"
 
 export default [
     {
@@ -74,6 +75,21 @@ export default [
         context:"搜索",
         icon:false,
         component:Search,
+        meta:{
+            keywords:""
+        },
+        children:[
+
+        ]
+    },{
+        // 搜索
+        id:6,
+        to:"/login",
+        path:"/login",
+        exact:true,
+        context:"登录",
+        icon:false,
+        component:Login,
         meta:{
             keywords:""
         },
