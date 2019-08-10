@@ -6,6 +6,8 @@ export const GET_CINEMA_DATA = "GET_CINEMA_DATA"
 
 export const GET_CHOOSE_CARD_MSG = "GET_CHOOSE_CARD_MSG"
 
+export const GET_MORE_CINEMA_LIST = "GET_MORE_CINEMA_LIST"
+
 
 
 

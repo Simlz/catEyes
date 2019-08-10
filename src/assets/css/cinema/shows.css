@@ -30,7 +30,12 @@
     text-overflow: ellipsis;
     padding-left: 15px;
 }
-.shows .main .cinema_data .address_icon{
+.cinema_data_wrap{
+    display: flex;
+    position: relative;
+}
+.shows .cinema_data_wrap .address_icon{
+    display: block;
     position: absolute;
     right: 0;
     top: 50%;
@@ -40,7 +45,7 @@
     text-align: center;
     transform: translateY(-50%)
 }
-.shows .main .cinema_data .address_icon img{
+.shows .cinema_data_wrap .address_icon img{
     width: 25px;
     height: 25px;
     margin-top: 3px;

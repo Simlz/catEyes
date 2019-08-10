@@ -9,34 +9,73 @@ import "../../assets/css/cinema/index.css"
 import iconCard from "../../assets/images/icon_card.png"
 import NoCinema from "../../components/NoCinema"
 
-import { getAllCinemaList } from "../../store/actions/Cinema/index"
+import { getAllCinemaList,getMoreCinema } from "../../store/actions/Cinema/index"
 
 class Cinema extends Component {
-
+    constructor(props){
+        super(props)
+        this.state={
+            pageIndex : 1,
+            cinema : []
+        }
+    }
     componentDidMount(){
+        localStorage.areaId=-1
+        localStorage.districtId=-1
+        localStorage.lineId=-1
+        localStorage.hallType=-1
+        localStorage.brandId=-1
+        localStorage.serviceId=-1
+        localStorage.areaId=-1
+        localStorage.stationId=-1
         this.props.getAllCinemaList();
     }
-
+    handlerScroll(){
+        this.props.getMoreCinema({offset:20*this.state.pageIndex,
+            districtId:localStorage.districtId,
+            lineId:localStorage.lineId,
+            hallType:localStorage.hallType,
+            brandId:localStorage.brandId,
+            serviceId:localStorage.serviceId,
+            areaId:localStorage.areaId,
+            stationId:localStorage.stationId
+        })
+        this.setState({
+            pageIndex : this.state.pageIndex/1+1
+        })
+    }
+    componentWillReceiveProps(){
+            window.addEventListener('scroll', () =>
+                (document.body.scrollTop || document.documentElement.scrollTop)>1830+2280*(this.state.pageIndex-1)?
+                    this.handlerScroll()
+                :null
+            )
+        
+    }
+    shouldComponentUpdate(nextProps,nextState){
+        if(nextProps.seats===this.props.seats&&nextProps.seats.cinemas){
+            return false
+        }else{
+            return true
+        }
+    }
     render() {
-        console.log(this.props)
-        let { posts } = this.props
-        let cityName = localStorage.name
+        let { posts,seats } = this.props
         if(JSON.stringify(posts) === "{}"){
             return(
                 null
             )
         }
         else{
+            JSON.stringify(seats)!=="{}"?posts.cinemas = [...posts.cinemas,...seats.cinemas.slice(seats.cinemas.length-20)]:posts.cinemas=[...posts.cinemas]
             return (
                 <div className="cineam_wrap">
                     <div className="cinema">
                         <Headers to="/cinema" label="影院"></Headers>
-                <div className="cinema">
-                    <Headers to="/cinema" label="影院"></Headers>
                     <div className="main">
                         <div className="cinema_tabbar">
                             <Link to="citylist" className="choose_city">
-                                <p>{cityName}</p>
+                                <p>{localStorage.name?localStorage.name:'北京'}</p>
                                 <p className="triangle_gray"></p>
                             </Link>
                             <Link to="search" className="search_cinema">
@@ -44,7 +83,8 @@ class Cinema extends Component {
                             </Link>
                         </div>
                         <div className="main">
-                            {posts.cinemas.length>0 ? <ul className="cinema_list">
+                            {posts.cinemas.length>0 ? 
+                                <ul className="cinema_list">
                                     {posts.cinemas.map((v,k)=>{
                                         return(
                                             <li key={v.id}>
@@ -80,11 +120,11 @@ class Cinema extends Component {
                                     })}
                                 </ul> 
                             : <NoCinema></NoCinema>}
+                            
                         </div>
                     </div>
                     <ChooseCard></ChooseCard>
-                    </div>
-                        <Nav></Nav>
+                    <Nav></Nav>
                     </div>
                 </div>
                 
@@ -98,6 +138,7 @@ class Cinema extends Component {
 
 
 const mapStateTpProps = state =>({
-    posts : state.posts.items
+    posts : state.posts.items,
+    seats : state.posts.seats
 })
-export default connect(mapStateTpProps,{ getAllCinemaList })(Cinema)
+export default connect(mapStateTpProps,{ getAllCinemaList,getMoreCinema })(Cinema)

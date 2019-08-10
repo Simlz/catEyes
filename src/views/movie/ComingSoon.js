@@ -17,7 +17,9 @@ export default class ComingSoon extends Component {
         super()
         this.state = {
             Central:{},
-            citylist:[]
+            citylist:[],
+            name:'北京',
+            cityId:1
             
         }
         // console.log(this.state)
@@ -41,7 +43,7 @@ export default class ComingSoon extends Component {
                 <div className="main">
                     <div className="second_menu">
                         <NavLink to="/citylist" className="choose_city">
-                            <p>{localStorage.name}</p>
+                            <p>{localStorage.name?localStorage.name:this.state.name}</p>
                             <p className="triangle_gray"></p>
                         </NavLink>
                         <NavLink exact to="/" activeClassName="active">

@@ -7,4 +7,11 @@ module.exports = function(app){
             "^/maoyan":""
         }
     }))
+    app.use("/api",proxy({
+        target:'https://ele-interface.herokuapp.com/api/',
+        changeOrigin:true,
+        pathRewrite:{
+            "^/api":""
+        }
+    }))
 }

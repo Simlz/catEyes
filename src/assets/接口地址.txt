@@ -2,5 +2,8 @@
 
 **********影院*************
 影院：maoyan/ajax/cinemaList?day="2019-08-03"&offset="0"&limit=20&districtId=-1&lineId=-1&hallType=-1&brandId=-1&serviceId=-1&areaId=-1&stationId=-1&item=&updateShowDay=true&reqId=1564794495376&cityId="1"
+
 全城，品牌，特色：maoyan/ajax/filterCinemas?ci=1
 影院详情：maoyan/ajax/cinemaDetail?cinemaId="26195"
+
+影院地址：https://3gimg.qq.com/lightmap/v1/marker/index.html?marker=coord%3A {40.09799经度} %2C {116.287895纬度} %3Btitle%3A 影院名  %3Baddr%3A 地址 &%24from=canary&key=TKUBZ-D24AF-GJ4JY-JDVM2-IBYKK-KEBCU&referer=wepiao&ch=uri-api&ADTAG=uri-api.wepiao#

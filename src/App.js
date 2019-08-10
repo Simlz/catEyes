@@ -17,7 +17,6 @@ import MyCoupon from "./views/myCenter/MyCoupon"
 import MemberCard from "./views/myCenter/MemberCard"
 import Shows from "./views/cinema/Shows"
 import CinemaDetail from "./views/cinema/CinemaDetail"
-import VipCard from "./views/myCenter/VipCard"
 
 import Routers from "./router"
 import './App.css';
@@ -39,7 +38,6 @@ class App extends React.Component{
         <Route exact path="/movie/comingsoon" component={ComingSoon}></Route>
         <Route path="/cinema/shows/:id" component={Shows}></Route>
         <Route path="/cinema/cinemadetail/:id" component={CinemaDetail}></Route>
-        <Route path="/mycenter/vipcard/:id" component={VipCard}></Route>
 
         <Route path="/moviedetail/:id" component={MovieDetail}></Route>
         <Route path="/detailsdetails/:id" component={DetailsDetails}></Route>

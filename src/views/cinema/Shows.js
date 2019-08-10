@@ -53,19 +53,28 @@ class Shows extends Component {
                 <div className="shows">
                     <Headers to={"/cinema/shows/"+posts.cinemaId} label={posts.cinemaData.nm}></Headers>
                     <div className="main">
-                        <Link to={"/cinema/cinemadetail/"+posts.cinemaId} className="cinema_data">
-                            <div className="cinema_msg">
-                                <p className="cinema_name">
-                                    {posts.cinemaData.nm}
-                                </p>
-                                <p className="cinema_address">
-                                    {posts.cinemaData.addr}
-                                </p>
-                            </div>
-                            <div className="address_icon">
+                        <div className="cinema_data_wrap">
+                            <Link to={"/cinema/cinemadetail/"+posts.cinemaId} className="cinema_data">
+                                <div className="cinema_msg">
+                                    <p className="cinema_name">
+                                        {posts.cinemaData.nm}
+                                    </p>
+                                    <p className="cinema_address">
+                                        {posts.cinemaData.addr}
+                                    </p>
+                                </div>
+                            </Link>
+                            {/* 地址 */}
+                            <a 
+                                href={"https://3gimg.qq.com/lightmap/v1/marker/index.html?marker=coord%3A"+
+                                posts.cinemaData.lat+"%2C"+posts.cinemaData.lng+
+                                "%3Btitle%3A"+posts.cinemaData.nm+
+                                "%3Baddr%3A"+posts.cinemaData.addr+
+                                "&%24from=canary&key=TKUBZ-D24AF-GJ4JY-JDVM2-IBYKK-KEBCU&referer=wepiao&ch=uri-api&ADTAG=uri-api.wepiao#"}
+                                className="address_icon">
                                 <img src={address_icon} alt=""/>
-                            </div>
-                        </Link>
+                            </a>
+                        </div>
                         <div className="cinema_movie">
                             <div className="swiper-container cinema_movie_img_list">
                                 <div className="swiper-wrapper cinema_movie_img_wrapper">
@@ -117,11 +126,12 @@ class Shows extends Component {
                                     {posts.showData.vipInfo.map((v,k)=>{
                                         return(
                                             // 会员卡有链接后期改为Link
-                                            <Link to="/mycenter/vipcard/1" key={k} className="shows_vipInfo_item">
+                                            <div
+                                                key={k} className="shows_vipInfo_item">
                                                 <div>{v.tag}</div>
                                                 <p>{v.title}</p>
                                                 <span>{v.process} ></span>
-                                            </Link>
+                                            </div>
                                         )
                                     })}
                                 </div>
@@ -161,7 +171,7 @@ class Shows extends Component {
                                     return(
                                         <Link to="#" key={k} className="show_movies_deallist_item">
                                             <div className="show_movies_deallist_item_img">
-                                                <img src={cheange_wh(v.imageUrl,92.92)} alt=""/>
+                                                <img src={cheange_wh(v.imageUrl,92.92)} alt="" style={{width:"92px",height:"92px"}}/>
                                                 {v.cardTag ? <span className="show_hot">{v.cardTag}</span> : null}
                                             </div>
                                             <div className="show_movies_deallist_item_r">
@@ -190,8 +200,7 @@ class Shows extends Component {
     }
 }
 
-// 存在问题：1.购票未实现 2.购买食品为实现 3.会员卡未实现（折扣）
-// TODO：增加三个界面 1.选座 2.食品订单 3.会员卡（已有，样式未写）
+// 存在问题：1.购票未实现 2.购买食品未实现 3.会员卡未实现（折扣）
 
 const mapStateTpProps = state =>({
     posts : state.posts.item

@@ -4,6 +4,7 @@ import MyCenter from "../views/myCenter"
 import Search from "../views/movie/Search"
 import CityList from "../views/movie/CityList"
 import Login from "../views/login"
+import Seats from "../views/seats"
 
 export default [
     {
@@ -82,7 +83,7 @@ export default [
 
         ]
     },{
-        // 搜索
+        // 登录
         id:6,
         to:"/login",
         path:"/login",
@@ -90,6 +91,22 @@ export default [
         context:"登录",
         icon:false,
         component:Login,
+        meta:{
+            keywords:""
+        },
+        children:[
+
+        ]
+    },
+    {
+        // 选座
+        id:7,
+        to:"/seats",
+        path:"/seats",
+        exact:true,
+        context:"选座",
+        icon:false,
+        component:Seats,
         meta:{
             keywords:""
         },

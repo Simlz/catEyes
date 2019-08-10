@@ -19,7 +19,8 @@ import filter from '../../common/Filters'
          super()
          this.state = {
             City:[],
-            name:'北京'
+            name:'北京',
+            cityId:1
          }
      }
      
@@ -44,7 +45,7 @@ import filter from '../../common/Filters'
                 <div className="main">
                     <div className="second_menu">
                             <NavLink to="/citylist" className="choose_city">
-                                <p>{localStorage.name}</p>
+                                <p>{localStorage.name?localStorage.name:this.state.name}</p>
                                 <p className="triangle_gray"></p>
                             </NavLink>
                             <NavLink exact to="/" activeClassName="active">
@@ -94,34 +95,9 @@ import filter from '../../common/Filters'
             </div>
         )
     }
-    // componentWillMount(){
-    //     if(this.props.location.state){
-    //         localStorage.id=this.props.location.state.id,
-    //         localStorage.name=this.props.location.state.name
-    //     }else if(!this.props.location.state){
-    //         localStorage.id = 1;
-    //         localStorage.name = "北京"
-    //     }
-    // }
-    // componentWillReceiveProps(){
-    //     console.log(2222222)
-    //     if(!this.props.location.state){
-    //         this.props.location.state = {};
-    //         this.props.location.state.id = 1;
-            
-    //     }
-    //     this.props.getAllMovieList(this.props.location.state.id);
-    // }
+
 
     componentDidMount() {
-        // console.log(222222222222,localStorage.name);
-        // // console.log(this.props.location.state.name)
-        // if(!this.props.location.state){
-        //     this.props.location.state = {id:1};
-        //     // localStorage.name = "北京"
-        //     // this.props.location.state.id = 1;
-        //     // this.props.location.state.name = ;
-        // }
         this.props.getAllMovieList(this.props.location.state.id);
         
     }
