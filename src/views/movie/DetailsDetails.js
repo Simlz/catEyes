@@ -4,7 +4,6 @@ import Headers from "../../components/Headers"
 import '../../assets/css/movie/DetailsDetails.css'
 import axios from 'axios'
 import filter from '../../common/Filters'
-import {Link} from "react-router-dom"
 
 
 
@@ -18,11 +17,15 @@ export default class DetailsDetails extends Component {
     }
     render() {
         let { detail } = this.state
+        const ids = this.props.match.params.id;
+
         if(JSON.stringify(detail) === "{}"){
             return(
                 null
             )
         }
+        
+        
         // console.log(this.state.detail.id)
         // console.log(this.props.match.params.id);
         return (
@@ -32,12 +35,13 @@ export default class DetailsDetails extends Component {
                     <Headers  label={detail.nm}></Headers>
                         <div className="login-e">
                             <div className="pic_show-e">
-                            <Link to={'/movie/preview/'+detail.id}>
-                                <div className="garden">
-                                    <p></p>
-                                </div>
-                                <img alt="" src={filter.filter(detail.img,"128.180")}/>
-                            </Link>
+                                
+                                <a href={'/maoyan/movie/'+ids+'/preview?_v_=yes'}>
+                                    <div className="garden">
+                                        <p></p>
+                                    </div>
+                                    <img alt="" src={filter.filter(detail.img,"128.180")}/>
+                                </a>
                             </div>
                             <div className="info_list-e">
                                 <h2>{detail.nm}</h2>
@@ -73,7 +77,7 @@ export default class DetailsDetails extends Component {
                                 {
                                     detail.photos.map((v,i)=>{
                                         return(
-                                            <a key={i} href="/maoyan/movie/1243361/stages"><img  src={filter.filter(v,"128.180")} alt="" /></a>
+                                            <a key={i} href={'/maoyan/movie/'+ids+'/stages'}><img  src={filter.filter(v,"128.180")} alt="" /></a>
                                         )
                                     })
                                 }
@@ -82,8 +86,8 @@ export default class DetailsDetails extends Component {
                             
                         </div>
                         <div className="media-rido-left">
-                            <a href="/maoyan/movie/1243361/preview?_v_=yes"><h3>视频 <span>19 > </span> </h3></a>
-                            <a href="/maoyan/movie/1243361/photos?_v_=yes"><h4>剧照 <span>288 > </span> </h4></a>
+                            <a href={'/maoyan/movie/'+ids+'/preview?_v_=yes'}><h3>视频 <span>19 > </span> </h3></a>
+                            <a href={'/maoyan/movie/'+ids+'/photos?_v_=yes'}><h4>剧照 <span>288 > </span> </h4></a>
                         </div>
                     </div>
 
@@ -106,6 +110,7 @@ export default class DetailsDetails extends Component {
     }
     componentDidMount() {
         this.getDetail();   
+        console.log(this.props.match.params.id)
     }
     
 }

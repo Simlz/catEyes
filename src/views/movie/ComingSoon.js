@@ -61,8 +61,8 @@ export default class ComingSoon extends Component {
                             <p className="iconfont">&#xe68d;</p>
                         </NavLink>
                     </div>
-
-                    <div className="warp">
+                    <div className="warp-lis">
+                        <div className="warp">
                         <div className="movie_body1">
                         <p>近期最受期待</p>
                         <ul>
@@ -121,7 +121,8 @@ export default class ComingSoon extends Component {
                                 })
                             }
                     </div>     
-
+</div>
+                    
                 </div>
             <Nav></Nav>
             </div>

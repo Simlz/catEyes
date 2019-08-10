@@ -32,7 +32,7 @@
     font-weight: 600;
   }
   .movie .main{
-    padding:100px 0 60px;
+    padding:0px;
   }
 
   /* ******************顶部滑动样式样式********************* */
@@ -104,6 +104,11 @@
 .pic_showimg img{
   width: 80%;
   height: 120px;
+}
+.warp-lis{
+  padding-top: 100px;
+  padding-bottom:50px;
+
 }
   /* *******************列表样式******************** */
   
