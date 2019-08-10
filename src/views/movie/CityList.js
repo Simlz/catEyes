@@ -48,7 +48,7 @@ import {Link} from 'react-router-dom'
                                 }
                             }}>
                                 
-                                <li className="city-list city-list-block clearfix" onClick={()=>this.getSetonClick(v.nm,v.id)}>{v.nm}</li>
+                                <li className="city-item" onClick={()=>this.getSetonClick(v.nm,v.id)}>{v.nm}</li>
                             </Link>
                         ) 
                     })
@@ -64,6 +64,7 @@ import {Link} from 'react-router-dom'
     }
     
     getSetonClick = (name,cityId) =>{
+        console.log(name,cityId)
         localStorage.name=name;
         localStorage.cityId=cityId;
         this.props.history.go(-1);

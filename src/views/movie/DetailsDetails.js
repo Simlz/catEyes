@@ -86,8 +86,8 @@ export default class DetailsDetails extends Component {
                             
                         </div>
                         <div className="media-rido-left">
-                            <a href={'/maoyan/movie/'+ids+'/preview?_v_=yes'}><h3>视频 <span>19 > </span> </h3></a>
-                            <a href={'/maoyan/movie/'+ids+'/photos?_v_=yes'}><h4>剧照 <span>288 > </span> </h4></a>
+                            <a href={'/maoyan/movie/'+ids+'/preview?'}><h3>视频 <span>19 > </span> </h3></a>
+                            <a href={'/maoyan/movie/'+ids+'/photos?'}><h4>剧照 <span>288 > </span> </h4></a>
                         </div>
                     </div>
 

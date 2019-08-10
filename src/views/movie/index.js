@@ -33,6 +33,7 @@ let movieIds =[];
  class Movie extends Component {
      constructor(props){
          super(props)
+         console.log(111)
          const dataSource = new ListView.DataSource({
             rowHasChanged: (row1, row2) => row1 !== row2,
           });
@@ -43,13 +44,16 @@ let movieIds =[];
             dataSource,
             isLoading: true,
          }
+         
      }
     async componentDidMount() {
-        const res= await axios.get(`/maoyan/ajax/movieOnInfoList?token=KG26PDO4NUGljWWBG8KRnmL7bmYAAAAAzwgAAKGUiXnjZvA0mK9pk5pyjoVK_Kr3sPycbTM_q5H9h19sFNDXhLSqb_WnoaeqUHJvkw${localStorage.cityId}`)
+        console.log(Number(localStorage.cityId))
+        const res= await axios.get(`/maoyan/ajax/movieOnInfoList?token=${Number(localStorage.cityId)}`)
         movieIds=res.data.movieIds;
-
-        const ress =  await axios.get(`/maoyan/ajax/moreComingList?token=KG26PDO4NUGljWWBG8KRnmL7bmYAAAAAzwgAAKGUiXnjZvA0mK9pk5pyjoVK_Kr3sPycbTM_q5H9h19sFNDXhLSqb_WnoaeqUHJvkw&movieIds=${movieIds.slice(pageIndex*12,(++pageIndex)*12)}`);
+        console.log(movieIds);
+        const ress =  await axios.get(`/maoyan/ajax/moreComingList?token=KG26PDO4NUGljWWBG8KRnmL7bmYAAAAAzwgAAKGUiXnjZvA0mK9pk5pyjoVK_Kr3sPycbTM_q5H9h19sFNDXhLSqb_WnoaeqUHJvkw&movieIds=${movieIds.slice(pageIndex*12,(pageIndex+1)*12)}`);
         data = ress.data.coming.reverse();
+        console.log(222,data);
         setTimeout(() => {
             this.rData = genData();
             this.setState({
@@ -67,9 +71,31 @@ let movieIds =[];
         }
         this.setState({ isLoading: true });
         this.rData = { ...this.rData, ...genData(++pageIndex) };
+        console.log(333,pageIndex);
         
+        // console.log(movieIds.slice(pageIndex*12,(++pageIndex)*12))
+        const res =  await axios.get(`/maoyan/ajax/moreComingList?token=KG26PDO4NUGljWWBG8KRnmL7bmYAAAAAzwgAAKGUiXnjZvA0mK9pk5pyjoVK_Kr3sPycbTM_q5H9h19sFNDXhLSqb_WnoaeqUHJvkw&movieIds=${movieIds.slice(pageIndex*12,(pageIndex+1)*12)}`);
+        data = res.data.coming.reverse();
+
         
-        const res =  await axios.get(`/maoyan/ajax/moreComingList?token=KG26PDO4NUGljWWBG8KRnmL7bmYAAAAAzwgAAKGUiXnjZvA0mK9pk5pyjoVK_Kr3sPycbTM_q5H9h19sFNDXhLSqb_WnoaeqUHJvkw&movieIds=${movieIds.slice(pageIndex*12,(++pageIndex)*12)}`);
+
+        setTimeout(() => {
+            this.setState({
+                dataSource: this.state.dataSource.cloneWithRows(this.rData),
+                isLoading: false,
+            });
+        }, 100);
+
+    }
+    getNull = async (event) =>{
+        if (this.state.isLoading && !this.state.hasMore) {
+            return;
+        }
+        this.setState({ isLoading: true });
+        this.rData = { ...this.rData, ...genData(--pageIndex) };
+        console.log(333,pageIndex);
+        // console.log(movieIds.slice(pageIndex*12,(++pageIndex)*12))
+        const res =  await axios.get(`/maoyan/ajax/moreComingList?token=KG26PDO4NUGljWWBG8KRnmL7bmYAAAAAzwgAAKGUiXnjZvA0mK9pk5pyjoVK_Kr3sPycbTM_q5H9h19sFNDXhLSqb_WnoaeqUHJvkw&movieIds=${movieIds.slice(pageIndex*12,(pageIndex+1)*12)}`);
         data = res.data.coming.reverse();
 
         setTimeout(() => {
@@ -89,14 +115,14 @@ let movieIds =[];
                 null
             )
         } 
-        
+        console.log(444,pageIndex);
         let index = data.length - 1;
         const row = (rowData, sectionID, rowID) => {
             if (index < 0) {
               index = data.length - 1;
             }
             const obj = data[index--];
-            // console.log(333333,rowID);
+            
             
             return (
                 <div className="movie-warp">
@@ -124,33 +150,31 @@ let movieIds =[];
                                 <p className="iconfont">&#xe68d;</p>
                             </NavLink>
                     </div>
-
-                    <div className="movie_body">
-                        <ul>
-                            <Link to={"/moviedetail/"+rowID} >
-                            {obj!==undefined?
-                                <li>
-                                    <div className="pic_show">
-                                    
-                                        <img src={filter.filter(obj.img,"128.180")} alt="" />
-                                    </div>
-                                    <div className="info_list">
-                                        <h2>{obj.nm}</h2>
-                                        <p>观众评 <span className="grade">{obj.sc}</span></p>
-                                        <p>主演:{obj.star}</p>
-                                        <p>{obj.showInfo}</p>
-                                    </div>
-                                    <div className="btn_mall">
-                                    
-                                    { obj.preShow?<div style={{background:'blue'}}>预售</div>:"购票"}
-                                    </div>
-                                </li>:this.setState({isLoading:false})
-                                    }
+                    {obj!==undefined?
+                        <div className="movie_body">
+                            <ul>
+                                <Link to={"/moviedetail/"+obj.id} >
                                 
-                            </Link>
+                                    <li>
+                                        <div className="pic_show">
+                                        
+                                            <img src={filter.filter(obj.img,"128.180")} alt="" />
+                                        </div>
+                                        <div className="info_list">
+                                            <h2>{obj.nm}</h2>
+                                            <p>观众评 <span className="grade">{obj.sc}</span></p>
+                                            <p>主演:{obj.star}</p>
+                                            <p>{obj.showInfo}</p>
+                                        </div>
+                                        <div className="btn_mall">
+                                        
+                                        { obj.preShow?<div style={{background:'blue'}}>预售</div>:"购票"}
+                                        </div>
+                                    </li>
+                                </Link>
                         </ul>
-                    </div>
-
+                    </div>:this.setState({isLoading:false})
+                    }
                     <Nav></Nav>
                 </div>
             </div>
@@ -173,6 +197,7 @@ let movieIds =[];
         useBodyScroll
         // onScroll={() => { console.log('scroll'); }}
         scrollRenderAheadDistance={500}
+        onEndReached={this.getNull}
         onEndReached={this.onEndReached}
         onEndReachedThreshold={10}
       />

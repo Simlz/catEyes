@@ -69,7 +69,7 @@ export default class ComingSoon extends Component {
                             {
                                 this.state.citylist.map((v,i)=>{
                                 return(
-                                        <Link to={"/"} key={i}>
+                                        <a href={`/maoyan/movie/${v.id}?_v_=yes&channelId=4&cityId=1&$from=canary#`} key={i}>
                                             <li>
                                                 <div className="pic_show"><img src={filter.filter(v.img,"170.200")} alt="" /></div>
                                                 <div className="info_list">
@@ -77,7 +77,7 @@ export default class ComingSoon extends Component {
                                                     <span>{v.comingTitle}</span>
                                                 </div>
                                             </li>
-                                        </Link>
+                                        </a>
                                     )
                                 })
                             }
