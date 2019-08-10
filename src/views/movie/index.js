@@ -15,12 +15,10 @@ import filter from '../../common/Filters'
 
 let data = []
 
-const NUM_ROWS = 7;
+const NUM_ROWS = 12;
 let pageIndex = 0;
 let movieIds =[];
  function genData(pIndex = 0) {
-  //http://m.maoyan.com/ajax/moreComingList?token=KG26PDO4NUGljWWBG8KRnmL7bmYAAAAAzwgAAKGUiXnjZvA0mK9pk5pyjoVK_Kr3sPycbTM_q5H9h19sFNDXhLSqb_WnoaeqUHJvkw&movieIds=1198925%2C1204720%2C1239282%2C1229683%2C1234382%2C1209180%2C1238775%2C1212%2C414997%2C644501
-//  console.log(pIndex)
 
   const dataBlob = {};
   for (let i = 0; i < NUM_ROWS; i++) {
@@ -47,12 +45,11 @@ let movieIds =[];
          }
      }
     async componentDidMount() {
-        const res= await axios.get("/maoyan/ajax/movieOnInfoList?token=KG26PDO4NUGljWWBG8KRnmL7bmYAAAAAzwgAAKGUiXnjZvA0mK9pk5pyjoVK_Kr3sPycbTM_q5H9h19sFNDXhLSqb_WnoaeqUHJvkw")
+        const res= await axios.get(`/maoyan/ajax/movieOnInfoList?token=KG26PDO4NUGljWWBG8KRnmL7bmYAAAAAzwgAAKGUiXnjZvA0mK9pk5pyjoVK_Kr3sPycbTM_q5H9h19sFNDXhLSqb_WnoaeqUHJvkw${localStorage.cityId}`)
         movieIds=res.data.movieIds;
 
-        const ress =  await axios.get("/maoyan/ajax/moreComingList?token=KG26PDO4NUGljWWBG8KRnmL7bmYAAAAAzwgAAKGUiXnjZvA0mK9pk5pyjoVK_Kr3sPycbTM_q5H9h19sFNDXhLSqb_WnoaeqUHJvkw&movieIds="+movieIds.slice(pageIndex*7,(pageIndex+1)*7));
+        const ress =  await axios.get(`/maoyan/ajax/moreComingList?token=KG26PDO4NUGljWWBG8KRnmL7bmYAAAAAzwgAAKGUiXnjZvA0mK9pk5pyjoVK_Kr3sPycbTM_q5H9h19sFNDXhLSqb_WnoaeqUHJvkw&movieIds=${movieIds.slice(pageIndex*12,(++pageIndex)*12)}`);
         data = ress.data.coming.reverse();
-
         setTimeout(() => {
             this.rData = genData();
             this.setState({
@@ -61,7 +58,7 @@ let movieIds =[];
             },function(){
             // console.log(11111,this.state.dataSource)
             });
-        }, 600);
+        }, 100);
     }
 
     onEndReached = async (event) => {
@@ -70,10 +67,9 @@ let movieIds =[];
         }
         this.setState({ isLoading: true });
         this.rData = { ...this.rData, ...genData(++pageIndex) };
-        setTimeout(()=>{
-
-        },2000)
-        const res =  await axios.get("/maoyan/ajax/moreComingList?token=KG26PDO4NUGljWWBG8KRnmL7bmYAAAAAzwgAAKGUiXnjZvA0mK9pk5pyjoVK_Kr3sPycbTM_q5H9h19sFNDXhLSqb_WnoaeqUHJvkw&movieIds="+movieIds.slice(pageIndex*7,(pageIndex+1)*7));
+        
+        
+        const res =  await axios.get(`/maoyan/ajax/moreComingList?token=KG26PDO4NUGljWWBG8KRnmL7bmYAAAAAzwgAAKGUiXnjZvA0mK9pk5pyjoVK_Kr3sPycbTM_q5H9h19sFNDXhLSqb_WnoaeqUHJvkw&movieIds=${movieIds.slice(pageIndex*12,(++pageIndex)*12)}`);
         data = res.data.coming.reverse();
 
         setTimeout(() => {
@@ -81,7 +77,7 @@ let movieIds =[];
                 dataSource: this.state.dataSource.cloneWithRows(this.rData),
                 isLoading: false,
             });
-        }, 1000);
+        }, 100);
     }
     render() {
         if(!this.props.location.state){
@@ -132,8 +128,12 @@ let movieIds =[];
                     <div className="movie_body">
                         <ul>
                             <Link to={"/moviedetail/"+rowID} >
+                            {obj!==undefined?
                                 <li>
-                                    <div className="pic_show"><img src={filter.filter(obj.img,"128.180")} alt="" /></div>
+                                    <div className="pic_show">
+                                    
+                                        <img src={filter.filter(obj.img,"128.180")} alt="" />
+                                    </div>
                                     <div className="info_list">
                                         <h2>{obj.nm}</h2>
                                         <p>观众评 <span className="grade">{obj.sc}</span></p>
@@ -144,7 +144,9 @@ let movieIds =[];
                                     
                                     { obj.preShow?<div style={{background:'blue'}}>预售</div>:"购票"}
                                     </div>
-                                </li>
+                                </li>:this.setState({isLoading:false})
+                                    }
+                                
                             </Link>
                         </ul>
                     </div>
@@ -161,14 +163,13 @@ let movieIds =[];
             <ListView
         ref={el => this.lv = el}
         dataSource={this.state.dataSource}
-        renderHeader={() => <span>header</span>}
         renderFooter={() => (<div style={{ padding: 10, textAlign: 'center' }}>
-          {this.state.isLoading ? 'Loading...' : 'Loaded'}
+          {/* {this.state.isLoading ? '加载中请等候...' : 'Loaded'} */}
         </div>)}
         renderRow={row}
         // renderSeparator={separator}
         className="am-list"
-        pageSize={4}
+        pageSize={4} 
         useBodyScroll
         // onScroll={() => { console.log('scroll'); }}
         scrollRenderAheadDistance={500}

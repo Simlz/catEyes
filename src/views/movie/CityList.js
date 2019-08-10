@@ -6,7 +6,12 @@ import {getAllCityList} from '../../store/actions/Movie/City'
 import {Link} from 'react-router-dom'
 
  class CityList extends Component {
+    constructor(){
+        super()
+        this.state = {
 
+        }
+    }
     render() {
         // console.log(this.props)
         let { city } = this.props
@@ -16,15 +21,24 @@ import {Link} from 'react-router-dom'
             )
         }
         // console.log(this.props.city.cts[0].id);
-        // console.log(this.props.city.cts);
+        console.log(this.props.city.cts);
         return (
             <div className="city_body">
-                {/* <h2>热门城市</h2> */}
+                <div className="city-title">
+                    热门城市
+                </div>
+                <div className="Popular">
+                    {
+                        this.props.city.cts.slice(0,10).map((value,i)=>{
+                            return <div onClick={()=>this.getSetonClick(value.nm,value.id)} className="city-item" key={i}>{value.nm}</div>
+                        })
+                    }
+                </div>
             <div  className="city_list">
             <div className="city_hot">
                     <ul>  
                 {
-                    this.props.city.cts.map((v,i)=>{
+                    this.props.city.cts.slice(10).map((v,i)=>{
                         return(
                             <Link className="fixList" key={i} to={{
                                 pathname:"#",
@@ -33,7 +47,8 @@ import {Link} from 'react-router-dom'
                                     name:this.props.city.cts[i].name
                                 }
                             }}>
-                                <li className="hotitem" onClick={()=>this.getSetonClick(v.nm,v.id)}>{v.nm}</li>
+                                
+                                <li className="city-list city-list-block clearfix" onClick={()=>this.getSetonClick(v.nm,v.id)}>{v.nm}</li>
                             </Link>
                         ) 
                     })

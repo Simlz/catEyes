@@ -59,7 +59,7 @@ export default class DetailsDetails extends Component {
                     <div className="Ticket">
                         <span onClick={()=>{
                             this.props.history.push("/moviedetail/"+detail.id)
-                        }}>{detail.awardUrl}特惠购票</span>
+                        }}>特惠购票</span>
                         <div className="Ticket-show">
                            <p>{detail.dra}</p>
                            {/* <h3 onClick={this.display.bind(this)}> > </h3> */}
