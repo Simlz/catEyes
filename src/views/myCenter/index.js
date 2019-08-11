@@ -15,10 +15,10 @@ import "../../assets/css/myCenter/index.css"
 
 export default class MyCenter extends Component {
     componentWillMount(){
-        if(!localStorage.maoyanname){this.props.history.push("/login")}
+        if(!localStorage.my_login){this.props.history.push("/login")}
     }
     handlerLogout(){
-        localStorage.removeItem("maoyanname")
+        localStorage.removeItem("my_login")
         this.props.history.push("/")
     }
     render() {

@@ -15,7 +15,7 @@ import {Link} from 'react-router-dom'
             )
         }
         // console.log(this.props.city.cts[0].id);
-        console.log(this.props.city.cts);
+        // console.log(this.props.city.cts);
         return (
             <div className="city_body">
                 <div className="city-title">
@@ -57,7 +57,7 @@ import {Link} from 'react-router-dom'
     }
     
     getSetonClick = (name,cityId) =>{
-        console.log(name,cityId)
+        // console.log(name,cityId)
         localStorage.name=name;
         localStorage.cityId=cityId;
         this.props.history.go(-1);

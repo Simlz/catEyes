@@ -88,7 +88,7 @@ let movieIds =[];
         }
         this.setState({ isLoading: true });
         this.rData = { ...this.rData, ...genData(--pageIndex) };
-        console.log(333,pageIndex);
+        // console.log(333,pageIndex);
         // console.log(movieIds.slice(pageIndex*12,(++pageIndex)*12))
         const res =  await axios.get(`/maoyan/ajax/moreComingList?token=KG26PDO4NUGljWWBG8KRnmL7bmYAAAAAzwgAAKGUiXnjZvA0mK9pk5pyjoVK_Kr3sPycbTM_q5H9h19sFNDXhLSqb_WnoaeqUHJvkw&movieIds=${movieIds.slice(pageIndex*12,(pageIndex+1)*12)}`);
         data = res.data.coming.reverse();

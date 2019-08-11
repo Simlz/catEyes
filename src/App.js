@@ -39,11 +39,8 @@ class App extends React.Component{
         <Route exact path="/movie/comingsoon" component={ComingSoon}></Route>
         <Route path="/cinema/shows/:id" component={Shows}></Route>
         <Route path="/cinema/cinemadetail/:id" component={CinemaDetail}></Route>
-
         <Route path="/moviedetail/:id" component={MovieDetail}></Route>
         <Route path="/detailsdetails/:id" component={DetailsDetails}></Route>
-
-        <Route path={"*"} component={()=><h2 style={{textAlign:"center",marginTop:"50px"}}>404</h2>}></Route>
       </Router>
     )
   }
