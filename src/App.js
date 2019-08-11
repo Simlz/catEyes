@@ -41,10 +41,6 @@ class App extends React.Component{
         <Route path="/cinema/cinemadetail/:id" component={CinemaDetail}></Route>
         <Route path="/moviedetail/:id" component={MovieDetail}></Route>
         <Route path="/detailsdetails/:id" component={DetailsDetails}></Route>
-<<<<<<< HEAD
-=======
-
->>>>>>> 85a24859c4c01051784eb8e67c019035beb4f596
       </Router>
     )
   }

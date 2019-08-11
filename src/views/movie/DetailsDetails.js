@@ -66,9 +66,9 @@ export default class DetailsDetails extends Component {
                         </div>
                     </div>
                     {/* 人物 */}
-                    <div className="character">
+                    {/* <div className="character">
                         
-                    </div>
+                    </div> */}
                     {/* 媒体库 */}
                     <div className="media-wrap">
                         <div className="media">
