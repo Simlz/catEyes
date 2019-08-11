@@ -43,7 +43,6 @@ class App extends React.Component{
         <Route path="/moviedetail/:id" component={MovieDetail}></Route>
         <Route path="/detailsdetails/:id" component={DetailsDetails}></Route>
 
-        <Route path={"*"} component={()=><h2 style={{textAlign:"center",marginTop:"50px"}}>404</h2>}></Route>
       </Router>
     )
   }
