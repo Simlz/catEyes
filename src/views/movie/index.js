@@ -10,11 +10,8 @@ import "../../assets/css/movie/detail.css"
 
 import { ListView } from 'antd-mobile';
 import axios from "axios"
-
 import filter from '../../common/Filters'
-
 let data = []
-
 const NUM_ROWS = 12;
 let pageIndex = 0;
 let movieIds =[];
@@ -33,7 +30,7 @@ let movieIds =[];
  class Movie extends Component {
      constructor(props){
          super(props)
-         console.log(111)
+        //  console.log(111)
          const dataSource = new ListView.DataSource({
             rowHasChanged: (row1, row2) => row1 !== row2,
           });
@@ -42,18 +39,17 @@ let movieIds =[];
             name:'北京',
             cityId:1,
             dataSource,
-            isLoading: true,
+            isLoading: true
          }
          
      }
     async componentDidMount() {
-        console.log(Number(localStorage.cityId))
-        const res= await axios.get(`/maoyan/ajax/movieOnInfoList?token=${Number(localStorage.cityId)}`)
+        const res= await axios.get("maoyan/ajax/movieOnInfoList?cityid="+localStorage.cityId)
         movieIds=res.data.movieIds;
-        console.log(movieIds);
+        // console.log(movieIds);
         const ress =  await axios.get(`/maoyan/ajax/moreComingList?token=KG26PDO4NUGljWWBG8KRnmL7bmYAAAAAzwgAAKGUiXnjZvA0mK9pk5pyjoVK_Kr3sPycbTM_q5H9h19sFNDXhLSqb_WnoaeqUHJvkw&movieIds=${movieIds.slice(pageIndex*12,(pageIndex+1)*12)}`);
         data = ress.data.coming.reverse();
-        console.log(222,data);
+        // console.log(222,data);
         setTimeout(() => {
             this.rData = genData();
             this.setState({
@@ -71,7 +67,6 @@ let movieIds =[];
         }
         this.setState({ isLoading: true });
         this.rData = { ...this.rData, ...genData(++pageIndex) };
-        console.log(333,pageIndex);
         
         // console.log(movieIds.slice(pageIndex*12,(++pageIndex)*12))
         const res =  await axios.get(`/maoyan/ajax/moreComingList?token=KG26PDO4NUGljWWBG8KRnmL7bmYAAAAAzwgAAKGUiXnjZvA0mK9pk5pyjoVK_Kr3sPycbTM_q5H9h19sFNDXhLSqb_WnoaeqUHJvkw&movieIds=${movieIds.slice(pageIndex*12,(pageIndex+1)*12)}`);
@@ -115,8 +110,9 @@ let movieIds =[];
                 null
             )
         } 
-        console.log(444,pageIndex);
+        // console.log(444,pageIndex);
         let index = data.length - 1;
+
         const row = (rowData, sectionID, rowID) => {
             if (index < 0) {
               index = data.length - 1;
@@ -150,8 +146,9 @@ let movieIds =[];
                                 <p className="iconfont">&#xe68d;</p>
                             </NavLink>
                     </div>
+                    
                     {obj!==undefined?
-                        <div className="movie_body">
+                        <div className="movie_body" >
                             <ul>
                                 <Link to={"/moviedetail/"+obj.id} >
                                 
@@ -173,15 +170,16 @@ let movieIds =[];
                                     </li>
                                 </Link>
                         </ul>
-                    </div>:this.setState({isLoading:false})
+                    </div>:[]
                     }
                     <Nav></Nav>
                 </div>
+                
             </div>
               </div>
             );
       
-          };
+          }
 
         return (
             <ListView
