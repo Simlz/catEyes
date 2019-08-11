@@ -1,19 +1,26 @@
-/* #content .city_body{ margin-top: 100px; display: flex; width:100%; }
-.city_body .city_list{ flex:1; overflow: auto; background: #FFF5F0;}
+#content .city_body{ margin-top: 100px; display: flex; width:100%; }
+.city_body .city_list{ flex:1; overflow: auto; }
 .city_body .city_list::-webkit-scrollbar{
     background-color:transparent;
     width:0;
-} */
+}
 
 
-/* .city_body .city_hot{ margin-top: 20px;}
+.city_body .city_hot{ margin-top: 20px;}
 .city_body .city_hot h2{ padding-left: 15px; line-height: 30px; font-size: 14px; background:#F0F0F0; font-weight: normal;}
 .city_body .city_hot ul li{ float: left; background: #fff; width: 29%; height: 33px; margin-top: 15px; margin-left: 3%; padding: 0 4px; border: 1px solid #e6e6e6; border-radius: 3px; line-height: 33px; text-align: center; box-sizing: border-box;}
 .city_body .city_sort div{ margin-top: 20px;}
 .city_body .city_sort h2{ padding-left: 15px; line-height: 30px; font-size: 14px; background:#F0F0F0; font-weight: normal;}
 .city_body .city_sort ul{display: block;display: flex; justify-content: center; align-items: center;flex-wrap: wrap; padding-left: 10px; margin-top: 10px;}
 .city_body .city_sort ul li{width:63.3%; line-height: 30px; line-height: 30px;}
-.city_body .city_index{background:#fff;position:fixed;right:0;margin-top:20px; width:20px; display: flex; flex-direction:column;text-align: center; border-left:1px #e6e6e6 solid;} */
+.city_body .city_index{
+  background:#fff;
+  position:fixed;
+  right:0;
+  margin-top:20px; 
+  width:20px; 
+  display: flex;
+   flex-direction:column;text-align: center; border-left:1px #e6e6e6 solid;}
 
 
 .title{
@@ -29,10 +36,7 @@
     line-height: 30px;
     background-color: #eee;
   }
-  .city-list city-list-inline clearfix{
-    /* background-color: #f5f5f5;
-    padding-bottom: 8px; */
-  }
+  
 .city-item{
     float: left;
   background: #fff;
@@ -50,7 +54,7 @@
   overflow: hidden;
   text-overflow: ellipsis;
 }
-.city-list city-list-block clearfix{
+.city-list-tp{
     width: 100%;
     height: auto;
     float: left;

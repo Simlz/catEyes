@@ -27,7 +27,7 @@ export default class MovieDetail extends Component {
             )
         }
         
-        // console.log(this.props.match.params.id);
+        console.log(this.state);
         return (
             <div className="movie_detail">
                 <div className="mainDetail">

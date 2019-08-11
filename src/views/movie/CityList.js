@@ -6,12 +6,6 @@ import {getAllCityList} from '../../store/actions/Movie/City'
 import {Link} from 'react-router-dom'
 
  class CityList extends Component {
-    constructor(){
-        super()
-        this.state = {
-
-        }
-    }
     render() {
         // console.log(this.props)
         let { city } = this.props
@@ -34,29 +28,28 @@ import {Link} from 'react-router-dom'
                         })
                     }
                 </div>
-            <div  className="city_list">
-            <div className="city_hot">
-                    <ul>  
-                {
-                    this.props.city.cts.slice(10).map((v,i)=>{
-                        return(
-                            <Link className="fixList" key={i} to={{
-                                pathname:"#",
-                                state:{
-                                    id:this.props.city.cts[i].id,
-                                    name:this.props.city.cts[i].name
-                                }
-                            }}>
-                                
-                                <li className="city-list city-list-block clearfix" onClick={()=>this.getSetonClick(v.nm,v.id)}>{v.nm}</li>
-                            </Link>
-                        ) 
-                    })
-                }
+                <div  className="city_list">
+                <div className="city_hot">
+                        <ul>  
+                    {
+                        this.props.city.cts.slice(10).map((v,i)=>{
+                            return(
+                                <Link className="fixList" key={i} to={{
+                                    pathname:"#",
+                                    state:{
+                                        id:this.props.city.cts[i].id,
+                                        name:this.props.city.cts[i].name
+                                    }
+                                }}>
+                                    
+                                    <li className="city-item" onClick={()=>this.getSetonClick(v.nm,v.id)}>{v.nm}</li>
+                                </Link>
+                            ) 
+                        })
+                    }
 
-                    </ul>
+                        </ul>
                 </div>
-                        
                 </div>
             </div>
 )
@@ -64,6 +57,7 @@ import {Link} from 'react-router-dom'
     }
     
     getSetonClick = (name,cityId) =>{
+        console.log(name,cityId)
         localStorage.name=name;
         localStorage.cityId=cityId;
         this.props.history.go(-1);
