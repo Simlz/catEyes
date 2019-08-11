@@ -1,7 +1,8 @@
 import React from 'react';
 import {
   BrowserRouter as Router,
-  Route
+  Route,
+  Switch
 } from "react-router-dom"
 
 // 电影
@@ -24,7 +25,7 @@ import './App.css';
 class App extends React.Component{
   render(){
     return(
-      <Router forceRefresh={false}>
+      <Router forceRefresh={true}>
         {Routers.map((v,k) => {
           return(
             <Route path={v.path} component={v.component} key={k} exact={v.exact}></Route>
@@ -41,6 +42,8 @@ class App extends React.Component{
 
         <Route path="/moviedetail/:id" component={MovieDetail}></Route>
         <Route path="/detailsdetails/:id" component={DetailsDetails}></Route>
+
+        <Route path={"*"} component={()=><h2 style={{textAlign:"center",marginTop:"50px"}}>404</h2>}></Route>
       </Router>
     )
   }
