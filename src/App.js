@@ -24,7 +24,7 @@ import './App.css';
 class App extends React.Component{
   render(){
     return(
-      <Router forceRefresh={true}>
+      <Router forceRefresh={false}>
         {Routers.map((v,k) => {
           return(
             <Route path={v.path} component={v.component} key={k} exact={v.exact}></Route>

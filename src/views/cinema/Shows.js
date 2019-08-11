@@ -15,34 +15,43 @@ class Shows extends Component {
     constructor(props){
         super(props)
         this.state = {
-            dateShowKey : 0
+            dateShowKey : 0,
+            imgIndex : 0
+
         }
     }
     handlerChangeDateShowKey(e,k){
         e.preventDefault()
         this.setState({
-            dateShowKey : k
+            dateShowKey : k,
         })
     }
     componentDidMount(){
         this.props.getCinemaDetail()
     }
+    
     componentDidUpdate(){
-        new Swiper('.swiper-container',{
-            effect : 'coverflow',
-            slidesPerView: 3,
-            centeredSlides: true,
-            coverflowEffect: {
-              rotate: 0,
-              stretch: 20,
-              depth: 0,
-              modifier: 2,
-              slideShadows : false
-            },
-        })
+        if(this.state.imgIndex===0){
+            let mySwiper = new Swiper('.swiper-container',{
+                effect : 'slide',
+                slidesPerView: 4,
+                centeredSlides: true,
+                on:{
+                    slideChangeTransitionEnd:
+                        ()=>{
+                                this.setState({
+                                    imgIndex : mySwiper.activeIndex
+                                })
+                            }
+                }
+            })
+        }
+        
     }
+
     render() {
         let { posts } = this.props
+        let { imgIndex } = this.state
         if(JSON.stringify(posts) === "{}"){
             return(
                 null
@@ -90,25 +99,25 @@ class Shows extends Component {
                             <div className="cinema_movie_list_bg"></div>
                             <div className="cinema_movie_list_bg_img" 
                                 style={{backgroundImage:'url('+
-                                (cheange_wh(posts.showData.movies[0].img,"375.525")+
+                                (cheange_wh(posts.showData.movies[imgIndex].img,"375.525")+
                                 ")")}}>
                             </div>
                         </div>
                         <div className="cinema_movie_detail">
                             <div className="cinema_movie_info">
                                 <div className="cinema_movie_name">
-                                    <h3>{posts.showData.movies[0].nm}</h3>
-                                    <p>{posts.showData.movies[0].sc}分</p>
+                                    <h3>{posts.showData.movies[imgIndex].nm}</h3>
+                                    <p>{posts.showData.movies[imgIndex].sc}分</p>
                                 </div>
                                 <div className="cinema_movie_desc">
-                                    {posts.showData.movies[0].desc}
+                                    {posts.showData.movies[imgIndex].desc}
                                 </div>
                             </div>
                         </div>
                         <div className="show_movies">
                             {/* 放映日期 */}
                             <div className="shows_day">
-                                {posts.showData.movies[0].shows.map((item,k) => {
+                                {posts.showData.movies[imgIndex].shows.map((item,k) => {
                                     return(
                                         <NavLink 
                                             to="#"
@@ -138,12 +147,12 @@ class Shows extends Component {
                             :null}
                             {/* 电影场次 */}
                             <div className="shows_plist">
-                                {posts.showData.movies[0].shows[this.state.dateShowKey].plist.map((v,k)=>{
+                                {posts.showData.movies[imgIndex].shows[this.state.dateShowKey].plist.map((v,k)=>{
                                     return(
                                         <div key={k} className="shows_plist_item">
                                             <div className="shows_plist_item_time">
                                                 <p>{v.tm}</p>
-                                                <span>{afterShow(v.tm,posts.showData.movies[0].dur)} 散场</span>
+                                                <span>{afterShow(v.tm,posts.showData.movies[imgIndex].dur)} 散场</span>
                                             </div>
                                             <div className="shows_plist_item_msg">
                                                 <p>{v.lang} {v.tp?v.tp:""}</p>

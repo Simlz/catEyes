@@ -1,2 +1,12 @@
-2019.8.3
-计划完成：
+
+
+            // effect : 'coverflow',
+            // slidesPerView: 3,
+            // centeredSlides: true,
+            // coverflowEffect: {
+            //   rotate: 0,
+            //   stretch: 20,
+            //   depth: 0,
+            //   modifier: 2,
+            //   slideShadows : false
+            // },
