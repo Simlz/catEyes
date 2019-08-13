@@ -35,8 +35,8 @@ export const getAllCinemaList =
 }
 
 // 获取影院详情
- let cinemaId = window.location.pathname.split("/")[3]
-export const getCinemaDetail = (id=cinemaId) => dispatch => {
+//  let cinemaId = window.location.pathname.split("/")[3]
+export const getCinemaDetail = (id) => dispatch => {
   fetch("/maoyan/ajax/cinemaDetail?cinemaId="+id)
   .then(res => res.json())
   .then(post =>
@@ -46,8 +46,8 @@ export const getCinemaDetail = (id=cinemaId) => dispatch => {
     }))
 }
 
-export const getCinemaData = (id=cinemaId) => dispatch =>{
-  fetch("/maoyan/ajax/cinemaAjaxDetail?cinemaId="+cinemaId)
+export const getCinemaData = (id) => dispatch =>{
+  fetch("/maoyan/ajax/cinemaAjaxDetail?cinemaId="+id)
   .then(res =>res.json())
   .then(data =>
     dispatch({

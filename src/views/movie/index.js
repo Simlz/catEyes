@@ -44,14 +44,14 @@ let movieIds =[];
          
      }
     async componentDidMount() {
-        const res= await axios.get("maoyan/ajax/movieOnInfoList?cityid="+localStorage.cityId)
+        const res= await axios.get("maoyan/ajax/movieOnInfoList?cityid="+ (localStorage.cityId || 1))
         movieIds=res.data.movieIds;
         // console.log(movieIds);
         const ress =  await axios.get(`/maoyan/ajax/moreComingList?token=KG26PDO4NUGljWWBG8KRnmL7bmYAAAAAzwgAAKGUiXnjZvA0mK9pk5pyjoVK_Kr3sPycbTM_q5H9h19sFNDXhLSqb_WnoaeqUHJvkw&movieIds=${movieIds.slice(pageIndex*12,(pageIndex+1)*12)}`);
         data = ress.data.coming.reverse();
         // console.log(222,data);
         setTimeout(() => {
-            this.rData = genData();
+            this.rData = genData()
             this.setState({
             dataSource: this.state.dataSource.cloneWithRows(this.rData),
             isLoading: false,

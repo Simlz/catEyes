@@ -8,7 +8,7 @@ import "../../assets/css/cinema/cinemaDetail.css"
 
 class CinemaDetail extends Component {
     componentDidMount(){
-        this.props.getCinemaData()
+        this.props.getCinemaData(this.props.match.params.id)
     }
     render() {
         let {data} = this.props

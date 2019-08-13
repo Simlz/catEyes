@@ -1,6 +1,6 @@
 import Movie from "../views/movie"
 import Cinema from "../views/cinema"
-import MyCenter from "../views/myCenter"
+import MyCenter from "../views/myCenter/Mini.js"
 import Search from "../views/movie/Search"
 import CityList from "../views/movie/CityList"
 import Login from "../views/login"
@@ -39,8 +39,8 @@ export default [
     },{
         // 我的
         id:3,
-        to:"/mycenter",
-        path:"/mycenter",
+        to:"/mini",
+        path:"/mini",
         exact:true,
         context:"我的",
         icon:"iconfont icon-ziyuan",

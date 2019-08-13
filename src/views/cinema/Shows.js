@@ -27,7 +27,7 @@ class Shows extends Component {
         })
     }
     componentDidMount(){
-        this.props.getCinemaDetail()
+        this.props.getCinemaDetail(this.props.match.params.id)
     }
     
     componentDidUpdate(){
