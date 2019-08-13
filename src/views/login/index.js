@@ -11,7 +11,9 @@ export default class Login extends Component {
            phone : "",
            passWord : "",
            errMsg : "",
-           errCode : ""
+           errCode : "",
+           btnTitle:"获取验证码",
+           disabled:false
        }
     }
     handlerChangePhone(e){
@@ -39,6 +41,27 @@ export default class Login extends Component {
             this.setState({
                 errMsg:""
             })
+            let time = 60;
+            let timer = setInterval(() => {
+                if (time === 0) {
+                clearInterval(timer);
+                this.setState({
+                    btnTitle:"获取验证码"
+                })
+                this.setState({
+                    disabled:false
+                })
+                } else {
+                // 倒计时
+                this.setState({
+                    btnTitle:time + "秒后重试"
+                })
+                this.setState({
+                    disabled:true
+                })
+                time--;
+                }
+            }, 1000); 
             axios.post("/api/posts/sms_send", {
                 tpl_id: "178860",
                 key: "4765fa980d9ef12b7cf3db400011b724",
@@ -105,7 +128,12 @@ export default class Login extends Component {
                             placeholder="  请输入验证码"
                             onChange={(e)=>this.handlerChangePassWord(e)}
                         />
-                        <span onClick={()=>this.getVerifyCode()}>获取验证码</span>
+                        <button 
+                            className="login_get_verifycode" 
+                            onClick={()=>this.getVerifyCode()}
+                            style={{border:"none",background:"#fff"}}
+                            disabled={this.state.disabled}
+                        >{this.state.btnTitle}</button>
                     </div>
                     <div className="login_des">
                         <p>即将登录，表示已同意<span>《用户服务协议》</span></p>

@@ -46,7 +46,7 @@ class Cinema extends Component {
     }
     componentWillReceiveProps(){
             window.addEventListener('scroll', () =>
-                (document.body.scrollTop || document.documentElement.scrollTop)>1830+2280*(this.state.pageIndex-1)?
+                (document.body.scrollTop || document.documentElement.scrollTop)>1800+2200*(this.state.pageIndex-1)?
                     this.handlerScroll()
                 :null
             )

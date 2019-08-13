@@ -33,9 +33,9 @@ body{
     background-color: #fff;
 }
 .search-login button{
-    width: 50px;
+    width: 30px;
     height: 29px;
-    margin: 2px 5px;
+    margin: 0 5px;
     border: none;
     outline: none;
     color: red;

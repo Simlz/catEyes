@@ -1,6 +1,6 @@
 import Movie from "../views/movie"
 import Cinema from "../views/cinema"
-import MyCenter from "../views/myCenter/Mini.js"
+import Mine from "../views/myCenter/Mini"
 import Search from "../views/movie/Search"
 import CityList from "../views/movie/CityList"
 import Login from "../views/login"
@@ -43,8 +43,23 @@ export default [
         path:"/mini",
         exact:true,
         context:"我的",
+        // icon:"iconfont icon-ziyuan",
+        component:Mine,
+        meta:{
+            keywords:""
+        },
+        children:[
+
+        ]
+    },{
+        // 我的
+        id:40,
+        to:"/mine",
+        path:"/mine",
+        exact:true,
+        context:"我的",
         icon:"iconfont icon-ziyuan",
-        component:MyCenter,
+        component:Mine,
         meta:{
             keywords:""
         },
@@ -63,9 +78,6 @@ export default [
         meta:{
             keywords:""
         },
-        children:[
-
-        ]
     },{
         // 搜索
         id:5,
@@ -78,9 +90,6 @@ export default [
         meta:{
             keywords:""
         },
-        children:[
-
-        ]
     },{
         // 登录
         id:6,
@@ -93,9 +102,6 @@ export default [
         meta:{
             keywords:""
         },
-        children:[
-
-        ]
     },
 ]
 
